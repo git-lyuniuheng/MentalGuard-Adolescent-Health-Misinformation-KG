@@ -10,7 +10,7 @@
 
 **MentalGuard** 是一个专门面向 12-18 岁青少年群体的中文健康谣言知识图谱，旨在解决社交媒体平台上青少年健康信息污染问题。数据集覆盖 9 大青少年高频健康领域，包含 61 条高质量谣言-真相配对，采用 12 字段结构化标注体系，并融合文本、图像、视频、传播特征四模态知识。
 
-该数据集可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
+该数据集为 IEEE ICDM 2026 Teen Research Symposium 论文的核心贡献，可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
 
 ---
 
@@ -191,7 +191,7 @@ dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
   month     = {August},
   version   = {v1.0},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.xxxxxxx},
+  doi       = {10.5281/zenodo.21774699},
   url       = {https://github.com/git-lyuniuheng/MentalGuard-Adolescent-Health-Misinformation-KG}
 }
 ```
@@ -199,7 +199,7 @@ dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
 ### APA
 
 ```
-Lyuniu Heng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard) (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.xxxxxxx
+Lyuniu Heng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard) (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21774699
 ```
 
 ---
