@@ -1,0 +1,182 @@
+# 完整字段模式定义 (Schema)
+# MentalGuard v1.0 数据集
+# 更新日期: 2026-08-03
+
+schema_version: "1.0"
+dataset_version: "v5.1"
+total_records: 61
+total_modal_nodes: 20
+
+# ===== 顶层结构 =====
+top_level_fields:
+  meta:
+    type: object
+    description: "数据集元数据"
+    fields:
+      version: { type: string, description: "数据集版本号" }
+      total_misconceptions: { type: integer, description: "谣言-真相配对总数" }
+      categories: { type: array, description: "类别英文标识列表" }
+      modalities: { type: array, description: "支持的模态列表" }
+      annotation_fields: { type: array, description: "标注字段列表" }
+      last_updated: { type: string, description: "最后更新日期" }
+      license: { type: string, description: "许可证" }
+      description: { type: string, description: "数据集描述" }
+
+  categories:
+    type: object
+    description: "按类别组织的谣言-真相配对数据"
+    pattern: "category_key -> { name, icon, source, misconceptions: [...] }"
+
+  reference_datasets:
+    type: array
+    description: "参考的现有数据集列表"
+
+  multimodal_reference_datasets:
+    type: array
+    description: "参考的多模态数据集列表"
+
+  multimodal_kg_extensions:
+    type: object
+    description: "多模态知识图谱扩展节点"
+    fields:
+      image_nodes: { type: array, description: "图像节点列表" }
+      video_nodes: { type: array, description: "视频节点列表" }
+      propagation_nodes: { type: array, description: "传播节点列表" }
+
+  open_source_plan:
+    type: object
+    description: "开源发布计划"
+
+# ===== 谣言-真相配对记录字段 (12 字段) =====
+misconception_record_fields:
+  - name: id
+    type: string
+    required: true
+    description: "唯一标识符，格式为类别前缀+序号（如 dh001, mh002）"
+    example: "dh001"
+
+  - name: rumor_text
+    type: string
+    required: true
+    description: "谣言的原始表述文本"
+    example: "近视可以治愈、可以逆转"
+
+  - name: truth_text
+    type: array_of_strings
+    required: true
+    description: "科学真相，支持多条分点陈述"
+    example: ["真性近视是眼轴变长导致的器质性改变，不可逆转", "目前没有任何方法可以治愈真性近视"]
+
+  - name: source
+    type: string
+    required: true
+    description: "证据来源的原始文本描述"
+    example: "教育部《近视防控20问答》；中华医学会眼科学分会近视防控专家共识"
+
+  - name: category
+    type: string
+    required: true
+    description: "所属类别中文名称"
+    example: "数字健康与近视防控"
+
+  - name: category_key
+    type: string
+    required: true
+    description: "所属类别英文标识"
+    example: "digital_health"
+
+  - name: severity
+    type: enum
+    required: true
+    enum_values: ["critical", "high", "medium", "low"]
+    description: "危险等级"
+    classification:
+      critical: "可能导致死亡/永久残疾"
+      high: "可能导致严重健康损害"
+      medium: "可能导致中度健康损害或经济损失"
+      low: "主要为认知误区，健康危害相对有限"
+
+  - name: keywords
+    type: array_of_strings
+    required: true
+    description: "关键词标签数组，3-5个"
+    example: ["近视", "伪科学", "虚假广告"]
+
+  - name: platform
+    type: string
+    required: true
+    description: "谣言主要传播平台"
+    example: "抖音"
+
+  - name: verified_sources
+    type: array_of_objects
+    required: true
+    description: "结构化交叉验证信源数组，至少包含2个独立信源"
+    object_fields:
+      - name: { type: string, description: "信源机构名称" }
+      - document: { type: string, description: "具体文件/报告名称" }
+      - tier: { type: enum, enum_values: ["T1", "T2"], description: "信源层级" }
+    example: '[{"name": "教育部", "document": "近视防控20问答", "tier": "T1"}]'
+
+  - name: verification_status
+    type: enum
+    required: true
+    enum_values: ["verified", "pending"]
+    description: "核验状态，verified 表示已通过双源交叉验证"
+
+  - name: source_tier
+    type: enum
+    required: true
+    enum_values: ["T1", "T2"]
+    description: "该记录的最高信源层级"
+
+# ===== 信源层级定义 =====
+source_tiers:
+  T1:
+    description: "政府机构与国际组织"
+    examples: ["国家卫健委", "WHO", "中国疾控中心", "教育部", "国家药监局"]
+    count: 9
+
+  T2:
+    description: "学术团体与专业学会"
+    examples: ["中华医学会", "中国营养学会", "中国心理学会", "DSM-5诊断标准"]
+    count: 6
+
+  T3:
+    description: "社交媒体与公众平台"
+    examples: ["新浪微博", "抖音", "科普中国视频库"]
+    count: 3
+
+# ===== 多模态节点字段 =====
+image_node_fields:
+  - misconception_id: { type: string, description: "关联的谣言记录ID" }
+  - type: { type: string, description: "图像类型（医学示意图/数据信息图/安全警示图等）" }
+  - desc: { type: string, description: "图像描述" }
+  - source: { type: string, description: "图像来源机构" }
+  - url: { type: string, description: "图像所在的权威科普页面URL（可回溯打开）" }
+  - local_path: { type: string, description: "本地存储路径（相对路径）" }
+  - format: { type: string, description: "图像格式（jpg/png等）" }
+  - status: { type: string, description: "验证状态" }
+  - url_type: { type: string, description: "URL类型分类" }
+  - url_desc: { type: string, description: "URL内容描述" }
+
+video_node_fields:
+  - misconception_id: { type: string, description: "关联的谣言记录ID" }
+  - platform: { type: string, description: "视频所在平台" }
+  - desc: { type: string, description: "视频描述" }
+  - propagation: { type: string, description: "传播指标（播放量/点赞等）" }
+  - url: { type: string, description: "视频URL（可回溯打开）" }
+  - local_path: { type: string, description: "本地存储路径" }
+  - keyframe_path: { type: string, description: "关键帧截图路径" }
+  - status: { type: string, description: "验证状态" }
+  - url_type: { type: string, description: "URL类型" }
+  - url_desc: { type: string, description: "URL内容描述" }
+
+propagation_node_fields:
+  - misconception_id: { type: string, description: "关联的谣言记录ID" }
+  - platform: { type: string, description: "传播平台" }
+  - metrics: { type: object, description: "传播指标（赞/转发/评论情感等）" }
+  - source_url: { type: string, description: "传播来源URL（可回溯打开）" }
+  - status: { type: string, description: "验证状态" }
+  - url_type: { type: string, description: "URL类型" }
+  - url_desc: { type: string, description: "URL内容描述" }
