@@ -1,0 +1,2718 @@
+{
+  "meta": {
+    "version": "5.0",
+    "total_misconceptions": 61,
+    "categories": [
+      "mental_health",
+      "food_safety",
+      "vaccine",
+      "digital_health",
+      "substance_safety",
+      "body_image_nutrition",
+      "dermatology",
+      "sleep_health",
+      "sexual_health"
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "propagation"
+    ],
+    "annotation_fields": [
+      "id",
+      "rumor_text",
+      "truth_text",
+      "source",
+      "category",
+      "category_key",
+      "severity",
+      "keywords",
+      "platform",
+      "verified_sources",
+      "verification_status",
+      "source_tier"
+    ],
+    "last_updated": "2026-08-02",
+    "license": "CC BY-NC-SA 4.0",
+    "description": "MentalGuard青少年健康谣言-真相知识图谱 v5.0 - 9大类别61条记录，字段名对齐7字段标准，支持结构化双源交叉验证",
+    "v5_changelog": {
+      "field_renames": {
+        "misconception": "rumor_text",
+        "facts": "truth_text",
+        "scientific_basis": "source (保留原始文本)",
+        "danger_level": "severity",
+        "tags": "keywords"
+      },
+      "new_fields": [
+        "category (显式类别字段，每个记录独立携带)",
+        "category_key (英文标识)",
+        "verified_sources (结构化数组，含name/document/tier)",
+        "verification_status (verified/pending)",
+        "source_tier (T1/T2，最高信源层级)"
+      ],
+      "multimodal_updates": [
+        "image_nodes 新赠 url/local_path/format/status",
+        "video_nodes 新赠 url/local_path/keyframe_path/status",
+        "propagation_nodes 新赠 source_url/status"
+      ]
+    }
+  },
+  "categories": {
+    "mental_health": {
+      "name": "青少年心理健康",
+      "icon": "🧠",
+      "source": "国家卫健委官网 + WHO青少年心理健康指南 + 中国心理学会科普",
+      "misconceptions": [
+        {
+          "id": "mh001",
+          "platform": "微博/小红书",
+          "rumor_text": "抑郁症就是心情不好，想开点就好了",
+          "truth_text": [
+            "抑郁症是大脑神经递质失衡导致的疾病，与血清素、多巴胺等物质代谢异常有关",
+            "单纯靠'想开点'无法治愈抑郁症，需要专业治疗",
+            "中重度抑郁症的首选治疗是药物联合心理治疗"
+          ],
+          "source": "WHO《青少年心理健康促进与预防指南》(2020)；国家卫健委《心理健康素养十条》(2019)",
+          "severity": "high",
+          "keywords": [
+            "抑郁症",
+            "认知误区",
+            "治疗"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "青少年心理健康促进与预防指南",
+              "tier": "T1"
+            },
+            {
+              "name": "国家卫健委",
+              "document": "心理健康素养十条",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh002",
+          "platform": "微博/小红书",
+          "rumor_text": "焦虑症就是太矫情、心理素质差",
+          "truth_text": [
+            "焦虑症是一种真实的精神障碍，涉及杏仁核-前额叶神经回路的异常",
+            "遗传因素占焦虑症发病风险的30%-40%",
+            "认知行为疗法(CBT)对焦虑症有效率超过60%"
+          ],
+          "source": "中国疾控中心《中国青少年心理健康状况调查报告》(2023)；DSM-5诊断标准",
+          "severity": "high",
+          "keywords": [
+            "焦虑症",
+            "污名化",
+            "认知误区"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "中国疾控中心",
+              "document": "中国青少年心理健康状况调查报告",
+              "tier": "T1"
+            },
+            {
+              "name": "DSM-5诊断标准",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh003",
+          "platform": "微博/小红书",
+          "rumor_text": "多动症不是病，就是小孩不听话、缺管教",
+          "truth_text": [
+            "注意缺陷多动障碍(ADHD)是神经发育障碍，大脑前额叶功能存在客观差异",
+            "中国儿童ADHD患病率约为6.3%，约2300万患儿",
+            "科学治疗包括行为治疗和药物（如哌甲酯），非简单管教可解决",
+            "规范治疗可帮助80%以上ADHD儿童显著改善注意力和行为"
+          ],
+          "source": "国家卫健委《儿童心理行为发育问题预警征象筛查表》；中华医学会《注意缺陷多动障碍防治指南》(2022)",
+          "severity": "high",
+          "keywords": [
+            "ADHD",
+            "神经发育",
+            "教育误区"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "儿童心理行为发育问题预警征象筛查表",
+              "tier": "T1"
+            },
+            {
+              "name": "中华医学会",
+              "document": "注意缺陷多动障碍防治指南",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh004",
+          "platform": "微博/小红书",
+          "rumor_text": "吃精神类药物会上瘾、会变傻",
+          "truth_text": [
+            "抗抑郁药(SSRI类)不产生成瘾性，与毒品有本质区别",
+            "抗精神病药物调节神经递质，不会'变傻'，部分患者服药后认知功能反而改善",
+            "突然停药可能导致撤药反应，这不同于成瘾，需在医生指导下逐渐减量",
+            "拒绝治疗导致疾病迁延不愈的伤害远大于规范用药的副作用"
+          ],
+          "source": "国家卫健委《严重精神障碍管理治疗工作规范》(2018版)；WHO《精神卫生药物治疗基本清单》",
+          "severity": "critical",
+          "keywords": [
+            "药物治疗",
+            "污名化",
+            "治疗依从性"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "严重精神障碍管理治疗工作规范",
+              "tier": "T1"
+            },
+            {
+              "name": "WHO",
+              "document": "精神卫生药物治疗基本清单",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh005",
+          "platform": "微博/小红书",
+          "rumor_text": "青春期叛逆和情绪波动不用管，长大就好了",
+          "truth_text": [
+            "部分青少年的'叛逆'可能是抑郁、焦虑或双相障碍的早期表现",
+            "青春期是精神障碍的高发期，50%的精神障碍在14岁前起病",
+            "早期识别和干预可显著改善预后，拖延治疗会导致学业失败、社交退缩等严重后果",
+            "建议：持续超过2周的情绪低落/兴趣减退应寻求专业评估"
+          ],
+          "source": "WHO《青少年心理健康》专题报告(2021)；中国《健康中国行动——儿童青少年心理健康行动方案》",
+          "severity": "high",
+          "keywords": [
+            "青春期",
+            "早期识别",
+            "干预窗口"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "青少年心理健康",
+              "tier": "T1"
+            },
+            {
+              "name": "中国",
+              "document": "健康中国行动——儿童青少年心理健康行动方案",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh006",
+          "platform": "微博/小红书",
+          "rumor_text": "自残、自杀倾向只是'威胁父母'的手段，不是真的想死",
+          "truth_text": [
+            "自残和自杀言论是严重的精神健康警报信号，必须认真对待",
+            "中国15-24岁青少年中，自杀是第二大死因（仅次于交通事故）",
+            "90%以上的自杀行为与精神障碍（尤其抑郁症、双相障碍）密切相关",
+            "任何自杀言论都应被严肃对待，不应被忽视或指责为'威胁'"
+          ],
+          "source": "国家卫健委《关于加强心理援助热线建设工作的通知》(2021)；中国疾控中心死因监测数据",
+          "severity": "critical",
+          "keywords": [
+            "自杀预防",
+            "危机干预",
+            "急救信号"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "关于加强心理援助热线建设工作的通知",
+              "tier": "T1"
+            },
+            {
+              "name": "中国疾控中心死因监测数据",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh007",
+          "platform": "微博/小红书",
+          "rumor_text": "心理疾病会传染，不能和心理有问题的人交朋友",
+          "truth_text": [
+            "心理疾病完全不会传染，这是对精神障碍患者最深的误解和歧视",
+            "患有心理疾病的人同样需要朋友、支持和社会联系",
+            "社会孤立和歧视是加重心理疾病的重要因素，社会支持是保护因素",
+            "积极的同伴支持可有效降低青少年抑郁焦虑的发生率"
+          ],
+          "source": "中国心理学会《心理健康社会支持共识》；WHO消除精神卫生歧视全球行动",
+          "severity": "high",
+          "keywords": [
+            "社会歧视",
+            "同伴支持",
+            "去污名化"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "中国心理学会",
+              "document": "心理健康社会支持共识",
+              "tier": "T2"
+            },
+            {
+              "name": "WHO消除精神卫生歧视全球行动",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "mh008",
+          "platform": "微博/小红书",
+          "rumor_text": "只有穷人家孩子才得心理疾病",
+          "truth_text": [
+            "心理疾病不分社会阶层、家庭经济水平和学业成绩",
+            "高学业压力、过度竞争、父母高期望反而是青少年心理问题的重要诱因",
+            "家境优越的青少年同样面临独特压力：成就焦虑、身份认同、亲子关系紧张"
+          ],
+          "source": "《柳叶刀》青少年心理健康委员会报告(2023)；北京师范大学学业压力与心理健康研究",
+          "severity": "medium",
+          "keywords": [
+            "社会偏见",
+            "压力源",
+            "认知误区"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "《柳叶刀》青少年心理健康委员会报告",
+              "document": "2023",
+              "tier": "T2"
+            },
+            {
+              "name": "北京师范大学学业压力与心理健康研究",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "mh009",
+          "platform": "微博/小红书",
+          "rumor_text": "社交恐惧就是内向害羞，多锻炼就好了",
+          "truth_text": [
+            "社交焦虑障碍是一种精神障碍，与害羞有本质区别：它导致持续强烈的恐惧和回避行为",
+            "患者明知恐惧不合理但无法控制，严重影响学业、社交和日常生活",
+            "害羞是人格特质，不造成显著痛苦或功能障碍；社交恐惧则需要专业治疗",
+            "中国青少年社交焦虑患病率约为3%-7%"
+          ],
+          "source": "中国精神障碍流行病学调查(2019)；ICD-11诊断标准",
+          "severity": "medium",
+          "keywords": [
+            "社交焦虑",
+            "诊断区分",
+            "认知误区"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "中国精神障碍流行病学调查",
+              "document": "2019",
+              "tier": "T2"
+            },
+            {
+              "name": "ICD-11诊断标准",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "mh010",
+          "platform": "微博/小红书",
+          "rumor_text": "高中生学习压力大，熬夜是正常现象",
+          "truth_text": [
+            "长期睡眠不足(少于7小时)显著增加青少年抑郁和焦虑风险",
+            "睡眠剥夺损害记忆巩固和学习效率，熬夜学习效率可能适得其反",
+            "教育部建议高中生每日睡眠时间不少于8小时",
+            "慢性睡眠不足会导致免疫功能下降、注意力缺陷和情绪不稳定"
+          ],
+          "source": "教育部《关于进一步加强中小学生睡眠管理工作的通知》(2021)；中国睡眠研究会青少年睡眠健康报告",
+          "severity": "high",
+          "keywords": [
+            "睡眠健康",
+            "学业压力",
+            "生活习惯"
+          ],
+          "category": "青少年心理健康",
+          "category_key": "mental_health",
+          "verified_sources": [
+            {
+              "name": "教育部",
+              "document": "关于进一步加强中小学生睡眠管理工作的通知",
+              "tier": "T1"
+            },
+            {
+              "name": "中国睡眠研究会青少年睡眠健康报告",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        }
+      ]
+    },
+    "food_safety": {
+      "name": "校园食品安全",
+      "icon": "🍎",
+      "source": "国家卫健委食品安全标准与监测评估司 + WHO食品安全五大要点 + 国家市场监督管理总局",
+      "misconceptions": [
+        {
+          "id": "fs001",
+          "platform": "抖音/微博",
+          "rumor_text": "食品添加剂都是有害的，零添加的食品才健康",
+          "truth_text": [
+            "我国批准的食品添加剂都经过严格的安全性评估，在规定用量和范围内使用是安全的",
+            "'零添加'往往是营销噱头，部分产品不使用防腐剂反而可能滋生致病菌",
+            "酱油、醋等传统发酵食品中的添加剂是为了防止变质，保障安全",
+            "关键看剂量：符合GB 2760标准的添加剂是安全的"
+          ],
+          "source": "国家卫健委《食品安全国家标准 食品添加剂使用标准》(GB 2760-2024)；WHO/FAO食品添加剂联合专家委员会(JECFA)评估报告",
+          "severity": "medium",
+          "keywords": [
+            "添加剂",
+            "食品安全标准",
+            "消费误区"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "食品安全国家标准 食品添加剂使用标准",
+              "tier": "T1"
+            },
+            {
+              "name": "WHO/FAO食品添加剂联合专家委员会",
+              "document": "JECFA",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "fs002",
+          "platform": "抖音/微博",
+          "rumor_text": "保质期过了的食品绝对不能吃",
+          "truth_text": [
+            "保质期是'最佳食用期限'而非'安全红线'，过期不等于马上变质",
+            "许多食品（如饼干、罐头、冷冻食品）在保质期后短时间内仍然安全可食",
+            "但鲜奶、熟肉、即食沙拉等高水分食品过期后风险较高",
+            "关键是观察食品是否出现异味、变色、霉变等变质迹象"
+          ],
+          "source": "国家市场监督管理总局食品安全消费提示；WHO家庭食品安全指南",
+          "severity": "low",
+          "keywords": [
+            "保质期",
+            "食品安全",
+            "消费常识"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "国家市场监督管理总局食品安全消费提示",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "WHO家庭食品安全指南",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "fs003",
+          "platform": "抖音/微博",
+          "rumor_text": "食物发霉了切掉发霉部分，剩下的还可以吃",
+          "truth_text": [
+            "霉菌产生的毒素（如黄曲霉素）可能已扩散到肉眼看不见的部分",
+            "黄曲霉素是1类致癌物，即使微量也有害",
+            "水果蔬菜发霉后的汁液可能携带霉菌扩散到整块食物",
+            "建议：除硬质奶酪等少数食品，发霉食物应整体丢弃"
+          ],
+          "source": "WHO《食品安全五大要点》；国家食品安全风险评估中心霉菌毒素风险评估",
+          "severity": "critical",
+          "keywords": [
+            "霉菌毒素",
+            "食品安全",
+            "消费误区"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "食品安全五大要点",
+              "tier": "T1"
+            },
+            {
+              "name": "国家食品安全风险评估中心霉菌毒素风险评估",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "fs004",
+          "platform": "抖音/微博",
+          "rumor_text": "学校食堂的转基因食品有害健康",
+          "truth_text": [
+            "世界卫生组织、美国国家科学院、中国科学院等权威机构一致确认：获批上市的转基因食品与传统食品同样安全",
+            "我国对转基因食品实行严格的安全评价和标识管理制度",
+            "全球数百项独立研究未发现转基因食品对人体健康有任何负面影响",
+            "转基因技术可减少农药使用、增加作物营养，具有环境和健康效益"
+          ],
+          "source": "WHO转基因食品安全评估报告；中国科学院《转基因技术科普手册》；美国国家科学院《转基因作物：经验与展望》(2016)",
+          "severity": "medium",
+          "keywords": [
+            "转基因",
+            "食品安全",
+            "科学认知"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "WHO转基因食品安全评估报告",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中国科学院",
+              "document": "转基因技术科普手册",
+              "tier": "T2"
+            },
+            {
+              "name": "美国国家科学院",
+              "document": "转基因作物：经验与展望",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "fs005",
+          "platform": "抖音/微博",
+          "rumor_text": "路边摊和小卖部的零食可以放心吃",
+          "truth_text": [
+            "路边摊和部分小卖部缺乏食品经营许可证和卫生监督",
+            "劣质零食可能含有超标的防腐剂、色素、甜味剂",
+            "来源不明的散装食品存在原料变质、加工不卫生等隐患",
+            "建议：选择有食品经营许可证的正规商家，查看包装上的SC编号"
+          ],
+          "source": "国家市场监督管理总局《食品经营许可管理办法》；校园食品安全监督抽检数据",
+          "severity": "high",
+          "keywords": [
+            "校园周边",
+            "食品安全",
+            "消费指南"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "国家市场监督管理总局",
+              "document": "食品经营许可管理办法",
+              "tier": "T1"
+            },
+            {
+              "name": "校园食品安全监督抽检数据",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "fs006",
+          "platform": "抖音/微博",
+          "rumor_text": "隔夜饭菜只要加热透了就安全",
+          "truth_text": [
+            "某些细菌（如金黄色葡萄球菌）产生的毒素耐高温，加热无法破坏",
+            "隔夜绿叶蔬菜会产生较多亚硝酸盐，反复加热含量更高",
+            "米饭在常温放置容易被蜡样芽孢杆菌污染，产生的毒素耐热",
+            "建议：剩饭剩菜在2小时内冷藏，且不超过24小时食用；绿叶菜不建议隔夜"
+          ],
+          "source": "国家食品安全风险评估中心《剩菜剩饭安全食用提示》；美国FDA食品安全指南",
+          "severity": "high",
+          "keywords": [
+            "家庭食品安全",
+            "细菌毒素",
+            "食用习惯"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "国家食品安全风险评估中心",
+              "document": "剩菜剩饭安全食用提示",
+              "tier": "T1"
+            },
+            {
+              "name": "美国FDA食品安全指南",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "fs007",
+          "platform": "抖音/微博",
+          "rumor_text": "用洗洁精洗水果蔬菜会中毒",
+          "truth_text": [
+            "正规餐具洗洁精符合GB14930.1标准，冲洗干净后微量残留不会中毒",
+            "清洗水果蔬菜的正确方法是：流水冲洗30秒以上，可配合专用果蔬清洗剂",
+            "不建议用洗洁精洗果蔬，但偶尔使用并充分冲洗也无需过度恐慌",
+            "更推荐小苏打水浸泡或盐水搓洗等物理方法"
+          ],
+          "source": "国家卫健委《食品安全国家标准 洗涤剂》(GB14930.1)；中国消费者协会果蔬清洗消费提示",
+          "severity": "low",
+          "keywords": [
+            "食品清洗",
+            "化学品安全",
+            "消费常识"
+          ],
+          "category": "校园食品安全",
+          "category_key": "food_safety",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "食品安全国家标准 洗涤剂",
+              "tier": "T1"
+            },
+            {
+              "name": "中国消费者协会果蔬清洗消费提示",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        }
+      ]
+    },
+    "vaccine": {
+      "name": "青少年疫苗与健康",
+      "icon": "💉",
+      "source": "国家卫健委疾控局 + WHO免疫战略咨询专家组 + 中国疾控中心",
+      "misconceptions": [
+        {
+          "id": "vx001",
+          "platform": "微博/小红书",
+          "rumor_text": "HPV疫苗不安全，会导致不孕不育",
+          "truth_text": [
+            "全球超过2.7亿剂HPV疫苗接种数据确认其高度安全",
+            "WHO全球疫苗安全咨询委员会多次确认：HPV疫苗不会导致不孕不育、卵巢早衰",
+            "HPV疫苗在100多个国家使用超过15年，不良事件监测系统未发现严重安全问题",
+            "HPV感染才是导致宫颈癌和生育能力受损的风险因素，疫苗恰是保护"
+          ],
+          "source": "WHO全球疫苗安全咨询委员会(GACVS) HPV疫苗安全声明(2017&2024更新)；中国疾控中心HPV疫苗科普",
+          "severity": "critical",
+          "keywords": [
+            "HPV疫苗",
+            "安全性",
+            "谣言"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "WHO全球疫苗安全咨询委员会",
+              "document": "GACVS",
+              "tier": "T1"
+            },
+            {
+              "name": "中国疾控中心HPV疫苗科普",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "vx002",
+          "platform": "微博/小红书",
+          "rumor_text": "打了疫苗就不会得相应的传染病了",
+          "truth_text": [
+            "任何疫苗的保护率都不是100%，大多数在85%-99%之间",
+            "疫苗的主要作用是大幅降低感染风险和重症率，而非绝对防护",
+            "即使接种后仍可能感染，症状通常较轻，病程更短",
+            "群体免疫需要足够高的接种率，个人接种也是在保护他人"
+          ],
+          "source": "WHO《疫苗与免疫》全球报告；中国疾控中心免疫规划中心科普资料",
+          "severity": "medium",
+          "keywords": [
+            "疫苗有效性",
+            "免疫原理",
+            "科学认知"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "疫苗与免疫",
+              "tier": "T1"
+            },
+            {
+              "name": "中国疾控中心免疫规划中心科普资料",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "vx003",
+          "platform": "微博/小红书",
+          "rumor_text": "流感疫苗没用，打了照样感冒",
+          "truth_text": [
+            "流感疫苗预防的是流感病毒引起的高热+全身症状，而非普通感冒（多由鼻病毒引起）",
+            "接种流感疫苗可降低40%-60%的流感感染风险，老年人和儿童保护效果更明显",
+            "即使感染流感，接种过疫苗的人住院风险降低约50%",
+            "每年流感在全球导致29万-65万人死亡，疫苗接种是最有效预防手段"
+          ],
+          "source": "WHO全球流感监测与响应系统(GISRS)数据；中国疾控中心流感疫苗接种指南(2024)",
+          "severity": "high",
+          "keywords": [
+            "流感",
+            "疫苗有效性",
+            "混淆概念"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "WHO全球流感监测与响应系统",
+              "document": "GISRS",
+              "tier": "T1"
+            },
+            {
+              "name": "中国疾控中心流感疫苗接种指南",
+              "document": "2024",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "vx004",
+          "platform": "微博/小红书",
+          "rumor_text": "疫苗含有汞（硫柳汞），会导致自闭症",
+          "truth_text": [
+            "硫柳汞与自闭症无关这一结论已被全球数十项大型研究反复证实",
+            "1998年提出'疫苗导致自闭症'的研究已被证实造假，论文被《柳叶刀》撤回，作者被吊销行医执照",
+            "中国自2005年已逐步淘汰含硫柳汞的疫苗，目前儿童常规疫苗基本不含硫柳汞",
+            "世界卫生组织、美国CDC、欧洲药品管理局均确认：疫苗不会导致自闭症"
+          ],
+          "source": "WHO疫苗安全声明；美国医学研究院《疫苗安全综述》(2012)；《柳叶刀》论文撤稿声明(2010)",
+          "severity": "critical",
+          "keywords": [
+            "汞",
+            "自闭症",
+            "经典谣言",
+            "科学辟谣"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "WHO疫苗安全声明",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "美国医学研究院",
+              "document": "疫苗安全综述",
+              "tier": "T2"
+            },
+            {
+              "name": "《柳叶刀》论文撤稿声明",
+              "document": "2010",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "vx005",
+          "platform": "微博/小红书",
+          "rumor_text": "新冠疫苗改变了人体基因",
+          "truth_text": [
+            "mRNA疫苗只进入细胞质，不进入细胞核，不与人体DNA接触或相互作用",
+            "mRNA在体内数小时到数天内自然降解，不会长期存在",
+            "灭活疫苗只含有灭活病毒颗粒，完全没有遗传物质操作能力",
+            "这一谣言源自对mRNA技术的基本误解，已被全球各国科学机构反复辟谣"
+          ],
+          "source": "WHO新冠疫苗安全声明；《Nature》mRNA疫苗机制综述(2021)；国家药监局新冠疫苗说明书",
+          "severity": "critical",
+          "keywords": [
+            "mRNA",
+            "基因",
+            "新冠疫苗",
+            "科学原理"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "WHO新冠疫苗安全声明",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "《Nature》mRNA疫苗机制综述",
+              "document": "2021",
+              "tier": "T2"
+            },
+            {
+              "name": "国家药监局新冠疫苗说明书",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "vx006",
+          "platform": "微博/小红书",
+          "rumor_text": "青少年不需要打乙肝疫苗",
+          "truth_text": [
+            "乙肝疫苗的保护性抗体水平随时间下降，部分人需加强接种",
+            "我国约7000万人为乙肝病毒携带者，青少年仍是高危暴露人群",
+            "学校集体生活中的密切接触增加了传播风险",
+            "建议：检查乙肝表面抗体，如低于保护水平应补种加强针"
+          ],
+          "source": "国家卫健委《慢性乙型肝炎防治指南》(2022)；中国疾控中心免疫规划程序",
+          "severity": "medium",
+          "keywords": [
+            "乙肝",
+            "疫苗接种",
+            "加强免疫"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "慢性乙型肝炎防治指南",
+              "tier": "T1"
+            },
+            {
+              "name": "中国疾控中心免疫规划程序",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "vx007",
+          "platform": "微博/小红书",
+          "rumor_text": "发烧就不能打疫苗，必须完全健康才能接种",
+          "truth_text": [
+            "37.5℃以下的轻微感冒（无发热）不影响疫苗接种",
+            "低烧（低于38℃）且一般情况良好的情况下，多数疫苗可以安全接种",
+            "高热（>38.5℃）或严重急症期应暂缓接种，康复后尽快补种即可",
+            "因小病推迟接种反而增加感染风险，尤其在校园集体环境中"
+          ],
+          "source": "WHO免疫接种实践指南；中国疾控中心《预防接种工作规范》(2023版)",
+          "severity": "low",
+          "keywords": [
+            "接种禁忌",
+            "误解",
+            "实践指导"
+          ],
+          "category": "青少年疫苗与健康",
+          "category_key": "vaccine",
+          "verified_sources": [
+            {
+              "name": "WHO免疫接种实践指南",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中国疾控中心",
+              "document": "预防接种工作规范",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        }
+      ]
+    },
+    "digital_health": {
+      "name": "数字健康与近视防控",
+      "icon": "👁️",
+      "source": "教育部近视防控宣讲团 + 中华医学会眼科学分会 + 国家卫健委辟谣平台 + 科普中国",
+      "misconceptions": [
+        {
+          "id": "dh001",
+          "platform": "抖音/小红书",
+          "rumor_text": "近视可以治愈、可以逆转",
+          "truth_text": [
+            "真性近视（轴性近视）是眼轴变长导致的物理变化，目前不可逆转",
+            "市面上声称'治愈近视'的视力训练仪、按摩仪没有科学依据",
+            "唯一经过循证医学验证的近视防控手段：增加户外活动+低浓度阿托品+OK镜控制进展",
+            "任何声称'7天摘掉眼镜'的商业广告均为虚假宣传"
+          ],
+          "source": "教育部《近视防控20问答》；中华医学会眼科学分会近视防控专家共识",
+          "severity": "high",
+          "keywords": [
+            "近视",
+            "伪科学",
+            "虚假广告",
+            "视力矫正"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "教育部",
+              "document": "近视防控20问答",
+              "tier": "T1"
+            },
+            {
+              "name": "中华医学会眼科学分会近视防控专家共识",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "dh002",
+          "platform": "小红书/抖音",
+          "rumor_text": "防蓝光眼镜能预防近视，手机蓝光是近视元凶",
+          "truth_text": [
+            "目前无充分科学证据表明蓝光与近视形成有直接因果关系",
+            "近视主要风险因素是近距离用眼时间过长和户外活动不足，而非蓝光",
+            "国家卫健委明确表示：尚无证据支持防蓝光眼镜的近视预防作用",
+            "控制每次近距离用眼时长（20-20-20法则）比戴防蓝光眼镜更有效"
+          ],
+          "source": "国家卫健委《儿童青少年近视防控适宜技术指南》；美国眼科学会蓝光声明",
+          "severity": "medium",
+          "keywords": [
+            "蓝光",
+            "近视预防",
+            "消费误区",
+            "科普"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "儿童青少年近视防控适宜技术指南",
+              "tier": "T1"
+            },
+            {
+              "name": "美国眼科学会蓝光声明",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "dh003",
+          "platform": "小红书/B站",
+          "rumor_text": "OK镜能根治近视，戴几年眼睛就恢复了",
+          "truth_text": [
+            "OK镜通过夜间佩戴暂时改变角膜形态，效果是暂时性的",
+            "OK镜主要延缓近视进展（约减缓50-60%速度），不能消除已有近视",
+            "停止佩戴后角膜恢复原状，近视度数仍然存在",
+            "OK镜需在专业眼科医师指导下验配，卫生不当可导致严重角膜感染"
+          ],
+          "source": "中华医学会《角膜塑形镜验配流程专家共识》；国家药监局OK镜审批说明书",
+          "severity": "high",
+          "keywords": [
+            "OK镜",
+            "角膜塑形",
+            "近视控制",
+            "医疗器械"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "中华医学会",
+              "document": "角膜塑形镜验配流程专家共识",
+              "tier": "T2"
+            },
+            {
+              "name": "国家药监局OK镜审批说明书",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "dh004",
+          "platform": "抖音/微博",
+          "rumor_text": "眼镜越戴度数越深，能不戴尽量不戴",
+          "truth_text": [
+            "近视进展的决定因素是遗传+环境，与戴不戴眼镜无直接关系",
+            "不戴镜的青少年为了看清会眯眼/凑近，反而加重视疲劳和近视进展",
+            "科学验配、度数准确的眼镜能提高学习效率和视觉质量",
+            "定期验光并根据变化调整度数是科学做法"
+          ],
+          "source": "教育部近视防控宣讲团科普材料；中华眼科杂志近视防控专题综述",
+          "severity": "high",
+          "keywords": [
+            "眼镜",
+            "配镜误区",
+            "验光",
+            "近视防控"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "教育部近视防控宣讲团科普材料",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中华眼科杂志近视防控专题综述",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "dh005",
+          "platform": "微博/抖音",
+          "rumor_text": "做眼保健操就不会近视，每天坚持做就够了",
+          "truth_text": [
+            "眼保健操主要缓解眼肌疲劳，对预防近视作用有限",
+            "缺乏高质量RCT证明眼保健操能独立预防近视",
+            "真正有效的近视预防三件套：户外活动2h+控制近距离用眼+正确读写姿势",
+            "眼保健操可作为辅助手段，但不能替代户外活动"
+          ],
+          "source": "教育部全国综合防控儿童青少年近视宣讲团(2026)；《中国学校卫生》综述",
+          "severity": "medium",
+          "keywords": [
+            "眼保健操",
+            "近视预防",
+            "户外活动",
+            "学校健康"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "教育部全国综合防控儿童青少年近视宣讲团",
+              "document": "2026",
+              "tier": "T1"
+            },
+            {
+              "name": "《中国学校卫生》综述",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "dh006",
+          "platform": "B站/小红书",
+          "rumor_text": "手机打开护眼模式/深色模式就安全了",
+          "truth_text": [
+            "护眼模式仅降低蓝光比例（色温变暖），不改变近距离用眼本质危害",
+            "长时间近距离盯着屏幕仍导致调节痉挛、干眼症和视疲劳",
+            "真正伤害是'近距离+长时间+姿势不当'三位一体用眼方式",
+            "建议：每20-30分钟休息远眺，保持40cm以上距离"
+          ],
+          "source": "国家卫健委《近视防控适宜技术指南》；美国眼科学会数字眼疲劳声明",
+          "severity": "medium",
+          "keywords": [
+            "护眼模式",
+            "屏幕时间",
+            "数字健康",
+            "用眼习惯"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "近视防控适宜技术指南",
+              "tier": "T1"
+            },
+            {
+              "name": "美国眼科学会数字眼疲劳声明",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "dh007",
+          "platform": "抖音/微博",
+          "rumor_text": "每天2小时户外活动是骗人的，没时间也没用",
+          "truth_text": [
+            "每天2小时户外活动是目前唯一经全球多中心研究证实的近视预防手段",
+            "2025年JAMA发表的中国大规模RCT进一步证实户外活动效果",
+            "关键在'户外'而非'运动'：自然光照(>10000 lux)刺激视网膜多巴胺释放",
+            "分散累计也有效：上学放学步行+课间+体育课分段累计2小时"
+          ],
+          "source": "教育部《近视防控20问答》；JAMA中国儿童近视户外干预研究(2025)",
+          "severity": "high",
+          "keywords": [
+            "户外活动",
+            "光照",
+            "近视预防",
+            "循证医学"
+          ],
+          "category": "数字健康与近视防控",
+          "category_key": "digital_health",
+          "verified_sources": [
+            {
+              "name": "教育部",
+              "document": "近视防控20问答",
+              "tier": "T1"
+            },
+            {
+              "name": "JAMA中国儿童近视户外干预研究",
+              "document": "2025",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        }
+      ]
+    },
+    "substance_safety": {
+      "name": "成瘾物质与功能饮品",
+      "icon": "⚠️",
+      "source": "中国疾控中心控烟办公室 + WHO《全球烟草流行报告》 + 国家药监局 + 国家卫健委食品安全标准",
+      "misconceptions": [
+        {
+          "id": "ss001",
+          "platform": "抖音/B站",
+          "rumor_text": "电子烟比香烟安全得多，不含尼古丁，不会上瘾",
+          "truth_text": [
+            "绝大多数市售电子烟含尼古丁，含量可高达传统香烟2-3倍",
+            "尼古丁对青少年发育中大脑有特殊毒性，损害注意力、学习和冲动控制",
+            "电子烟气溶胶含甲醛、丙烯醛等致癌物和重金属",
+            "使用电子烟的青少年未来吸烟可能性是未使用者的3-4倍",
+            "2024年中国疾控中心数据：中学生电子烟尝试率达13.5%"
+          ],
+          "source": "中国疾控中心《2024中国成人烟草调查》；WHO《全球烟草流行报告》(2023)",
+          "severity": "critical",
+          "keywords": [
+            "电子烟",
+            "尼古丁",
+            "成瘾",
+            "青少年"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "中国疾控中心",
+              "document": "2024中国成人烟草调查",
+              "tier": "T1"
+            },
+            {
+              "name": "WHO",
+              "document": "全球烟草流行报告",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "ss002",
+          "platform": "抖音/B站",
+          "rumor_text": "喝能量饮料能提神醒脑，长期喝没关系",
+          "truth_text": [
+            "一瓶500ml能量饮料含咖啡因约160mg，远超青少年日推荐量(≤100mg)",
+            "高剂量咖啡因导致心悸、焦虑、失眠，青少年已有过量饮用致心律失常送医案例",
+            "能量饮料含大量添加糖（一瓶约14-16块方糖），增加肥胖和龋齿风险",
+            "能量饮料中的牛磺酸和维生素B群不能'抵消'睡眠不足的危害"
+          ],
+          "source": "国家卫健委食品安全标准；欧洲食品安全局(EFSA)咖啡因安全摄入评估",
+          "severity": "high",
+          "keywords": [
+            "能量饮料",
+            "咖啡因",
+            "学习",
+            "心血管"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "国家卫健委食品安全标准",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "欧洲食品安全局",
+              "document": "EFSA",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "ss003",
+          "platform": "微博/小红书",
+          "rumor_text": "未成年人偶尔喝点啤酒、果酒没关系，又不是白酒",
+          "truth_text": [
+            "青少年大脑前额叶发育持续到25岁，酒精对发育中大脑损伤远大于成人",
+            "早期饮酒者未来酒精使用障碍风险是晚开始者的4-5倍",
+            "我国法律规定不得向未成年人售酒",
+            "家长'允许少量尝尝'的态度被医学指南明确反对"
+          ],
+          "source": "WHO《全球酒精与健康报告》；《柳叶刀》青少年饮酒危害综述(2024)；《未成年人保护法》",
+          "severity": "high",
+          "keywords": [
+            "酒精",
+            "大脑发育",
+            "未成年人",
+            "家庭教育"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "全球酒精与健康报告",
+              "tier": "T1"
+            },
+            {
+              "name": "《柳叶刀》青少年饮酒危害综述",
+              "document": "2024",
+              "tier": "T2"
+            },
+            {
+              "name": "《未成年人保护法》",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "ss004",
+          "platform": "B站/抖音",
+          "rumor_text": "健身吃蛋白粉能快速增肌长高，青少年就该多吃",
+          "truth_text": [
+            "蛋白粉是食物蛋白质提纯形式，无特殊'增肌素'作用，不能促进增高",
+            "长高取决于骨骺是否闭合（主要由遗传决定），达蛋白质推荐量即可",
+            "过量摄入蛋白质(>2g/kg体重/日)增加肾脏负担",
+            "均衡饮食完全可以满足青少年蛋白质需求"
+          ],
+          "source": "中国营养学会《中国居民膳食营养素参考摄入量(DRIs 2023)》；运动营养学会立场声明",
+          "severity": "medium",
+          "keywords": [
+            "蛋白粉",
+            "增高",
+            "运动营养",
+            "肾脏"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "中国营养学会",
+              "document": "中国居民膳食营养素参考摄入量(DRIs 2023",
+              "tier": "T2"
+            },
+            {
+              "name": "运动营养学会立场声明",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "ss005",
+          "platform": "抖音/小红书",
+          "rumor_text": "网红减肥药/酵素/代餐奶昔是科学减肥，安全无副作用",
+          "truth_text": [
+            "我国批准用于青少年肥胖的减肥药物极少，需医生处方",
+            "网红减肥产品多为保健食品或普通食品，无减肥功效审批",
+            "违规减肥产品常非法添加西布曲明（已因心血管风险禁售）等违禁药物",
+            "青少年科学体重管理：均衡饮食+适量运动+行为干预，不依赖单一产品"
+          ],
+          "source": "国家药监局减肥类产品消费警示；中华医学会内分泌学分会肥胖诊疗指南",
+          "severity": "critical",
+          "keywords": [
+            "减肥药",
+            "代餐",
+            "虚假广告",
+            "违禁成分"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "国家药监局减肥类产品消费警示",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中华医学会内分泌学分会肥胖诊疗指南",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "ss006",
+          "platform": "抖音/小红书",
+          "rumor_text": "网红增高药、增高贴确实有效",
+          "truth_text": [
+            "骨骺闭合后（女孩约17-18岁，男孩约18-20岁）任何药物无法增加身高",
+            "市面上所有'增高药'要么是普通营养补充剂，要么含非法激素",
+            "生长激素仅用于确诊的生长激素缺乏症等特定疾病，需严格医学评估",
+            "滥用生长激素可导致肢端肥大、关节疼痛、血糖异常等严重副作用"
+          ],
+          "source": "中华医学会儿科学分会《矮身材儿童诊治指南》；国家药监局非法增高产品专项整治公告",
+          "severity": "critical",
+          "keywords": [
+            "增高药",
+            "生长激素",
+            "骨骺",
+            "非法医疗"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "中华医学会儿科学分会",
+              "document": "矮身材儿童诊治指南",
+              "tier": "T2"
+            },
+            {
+              "name": "国家药监局非法增高产品专项整治公告",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "ss007",
+          "platform": "微博/B站",
+          "rumor_text": "偶尔抽几根烟不会上瘾，只有老烟枪才会上瘾",
+          "truth_text": [
+            "青少年大脑对尼古丁敏感性远高于成人，吸少量烟即可迅速建立依赖",
+            "研究显示青少年仅抽100支烟后即可形成尼古丁依赖",
+            "每10个成年吸烟者中近9人在18岁前开始吸烟",
+            "'偶尔'最容易变为'经常'：烟瘾滑梯效应在青少年中尤为显著"
+          ],
+          "source": "中国疾控中心《2024中国成人烟草调查》；美国卫生总署《青少年烟草使用报告》",
+          "severity": "high",
+          "keywords": [
+            "吸烟",
+            "尼古丁依赖",
+            "成瘾",
+            "青少年"
+          ],
+          "category": "成瘾物质与功能饮品",
+          "category_key": "substance_safety",
+          "verified_sources": [
+            {
+              "name": "中国疾控中心",
+              "document": "2024中国成人烟草调查",
+              "tier": "T1"
+            },
+            {
+              "name": "美国卫生总署",
+              "document": "青少年烟草使用报告",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        }
+      ]
+    },
+    "body_image_nutrition": {
+      "name": "饮食与身体形象",
+      "icon": "🍎",
+      "source": "中国疾控中心营养与健康所 + 国家卫健委食品安全标准 + 中国营养学会 + WHO青少年生长发育标准",
+      "misconceptions": [
+        {
+          "id": "bn001",
+          "platform": "小红书/抖音",
+          "rumor_text": "不吃米饭/主食能快速减肥，现在流行生酮饮食",
+          "truth_text": [
+            "碳水化合物是青少年大脑和身体首选能量来源，完全断碳导致注意力下降",
+            "生酮饮食是治疗难治性癫痫的治疗性饮食方案，不适合青少年日常减重",
+            "青少年每天碳水化合物供能应占50-65%，过度限制影响生长发育激素分泌",
+            "减肥关键在于总热量控制+营养均衡，而非妖魔化某一类营养素"
+          ],
+          "source": "中国营养学会《中国居民膳食指南(2022)》；中华医学会儿科学分会肥胖管理共识",
+          "severity": "high",
+          "keywords": [
+            "主食",
+            "碳水化合物",
+            "减肥",
+            "生酮饮食"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "中国营养学会",
+              "document": "中国居民膳食指南(2022",
+              "tier": "T2"
+            },
+            {
+              "name": "中华医学会儿科学分会肥胖管理共识",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "bn002",
+          "platform": "小红书/抖音",
+          "rumor_text": "节食就是控制体重的最好方法，少吃自然瘦",
+          "truth_text": [
+            "节食导致基础代谢率下降，一旦恢复正常食量反弹更胖",
+            "青少年节食危险远超成人：可导致青春期延迟、骨密度下降、贫血",
+            "节食是进食障碍（神经性厌食症/贪食症）的重要诱因",
+            "科学体重管理是'吃饱吃好'+规律运动，而非挨饿"
+          ],
+          "source": "国家卫健委《儿童青少年肥胖防控实施方案》；国际进食障碍学会(IAEDP)青少年指南",
+          "severity": "critical",
+          "keywords": [
+            "节食",
+            "进食障碍",
+            "体重管理",
+            "基础代谢"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "国家卫健委",
+              "document": "儿童青少年肥胖防控实施方案",
+              "tier": "T1"
+            },
+            {
+              "name": "国际进食障碍学会",
+              "document": "IAEDP",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "bn003",
+          "platform": "微博/抖音",
+          "rumor_text": "不吃早餐能减肥，早上来不及正好省一顿",
+          "truth_text": [
+            "大型队列研究一致显示：规律吃早餐的青少年超重/肥胖率低20-30%",
+            "不吃早餐导致上午饥饿感强烈，午晚餐更易暴饮暴食",
+            "早餐提供全天能量和营养素，不吃早餐与学习成绩下降显著相关",
+            "理想早餐三要素：主食+优质蛋白+蔬菜水果"
+          ],
+          "source": "中国营养学会学龄儿童膳食指南；WHO学校健康促进框架",
+          "severity": "medium",
+          "keywords": [
+            "早餐",
+            "减肥",
+            "学习",
+            "学校健康"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "中国营养学会学龄儿童膳食指南",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "WHO学校健康促进框架",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "bn004",
+          "platform": "抖音/微博",
+          "rumor_text": "喝骨头汤可以补钙、让孩子长高",
+          "truth_text": [
+            "实验测定：100ml骨头汤含钙量仅1-2mg，远低于牛奶的120mg/100ml",
+            "骨头中的钙以羟基磷灰石形式存在，几乎不溶于水",
+            "真正高效补钙食物：牛奶>豆制品>绿叶蔬菜>小鱼小虾",
+            "青少年每日钙推荐摄入量1000-1200mg，约等于500ml牛奶"
+          ],
+          "source": "中国营养学会《DRIs 2023》；中国食物成分表(第6版)",
+          "severity": "medium",
+          "keywords": [
+            "补钙",
+            "增高",
+            "骨头汤",
+            "营养误区"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "中国营养学会",
+              "document": "DRIs 2023",
+              "tier": "T2"
+            },
+            {
+              "name": "中国食物成分表",
+              "document": "第6版",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "bn005",
+          "platform": "微博/B站",
+          "rumor_text": "胖就是因为吃得多动得少，就是懒",
+          "truth_text": [
+            "肥胖是多因素疾病，涉及遗传(40-70%影响力)、代谢、内分泌、心理、环境",
+            "部分青少年肥胖与内分泌异常有关",
+            "仅用意志力不能解决肥胖，需要医学+营养+心理+行为多维干预",
+            "将肥胖归咎于'懒'加重患者心理创伤和自我否定"
+          ],
+          "source": "WHO肥胖事实声明；中华医学会内分泌学分会《中国儿童青少年肥胖诊治专家共识》",
+          "severity": "high",
+          "keywords": [
+            "肥胖",
+            "污名化",
+            "多因素",
+            "医学认知"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "WHO肥胖事实声明",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中华医学会内分泌学分会",
+              "document": "中国儿童青少年肥胖诊治专家共识",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "bn006",
+          "platform": "小红书/微博",
+          "rumor_text": "BMI越高越不健康，低于18才好看",
+          "truth_text": [
+            "青少年需使用年龄别BMI百分位数而非成人的固定阈值",
+            "BMI过低(<第5百分位)同样不健康：暗示营养不良、免疫功能下降",
+            "'以瘦为美'对青少年身体意象伤害可导致进食障碍",
+            "应关注体脂百分比、腰围、心肺耐力等综合指标"
+          ],
+          "source": "WHO青少年生长标准(5-19岁)；国家卫健委《学龄儿童青少年超重与肥胖筛查》",
+          "severity": "medium",
+          "keywords": [
+            "BMI",
+            "身体意象",
+            "体重标准",
+            "青春期"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "WHO青少年生长标准",
+              "document": "5-19岁",
+              "tier": "T1"
+            },
+            {
+              "name": "国家卫健委",
+              "document": "学龄儿童青少年超重与肥胖筛查",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "bn007",
+          "platform": "小红书/B站",
+          "rumor_text": "青春期素食更健康，可以排毒、皮肤更好",
+          "truth_text": [
+            "无规划素食易导致青少年缺乏：维生素B12、铁、锌、钙",
+            "植物铁吸收率远低于动物铁，素食者缺铁性贫血风险显著增高",
+            "'排毒'是伪科学概念，肝脏和肾脏本身就是高效排毒系统",
+            "选择素食需咨询营养师制定补充方案"
+          ],
+          "source": "中国营养学会《素食人群膳食指南》；美国营养与饮食学会素食立场声明",
+          "severity": "medium",
+          "keywords": [
+            "素食",
+            "营养缺乏",
+            "排毒",
+            "青春期"
+          ],
+          "category": "饮食与身体形象",
+          "category_key": "body_image_nutrition",
+          "verified_sources": [
+            {
+              "name": "中国营养学会",
+              "document": "素食人群膳食指南",
+              "tier": "T2"
+            },
+            {
+              "name": "美国营养与饮食学会素食立场声明",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        }
+      ]
+    },
+    "dermatology": {
+      "name": "青春期皮肤健康",
+      "icon": "🧴",
+      "source": "中华医学会皮肤性病学分会 + 中国医师协会皮肤科分会 + 国家药监局化妆品监管",
+      "misconceptions": [
+        {
+          "id": "dm001",
+          "platform": "小红书/抖音",
+          "rumor_text": "长痘痘是因为脸没洗干净，每天多洗几次就好了",
+          "truth_text": [
+            "痤疮主因：雄激素刺激皮脂腺+毛囊口异常角化堵塞+痤疮丙酸杆菌，非清洁不足",
+            "过度清洁破坏皮肤屏障和酸性保护膜，导致皮肤干燥、代偿性出油更多",
+            "正确做法：早晚各一次，温和洁面产品(pH5.5-6.5)，温水",
+            "中重度痤疮需在皮肤科医师指导下用药治疗"
+          ],
+          "source": "中华医学会《中国痤疮治疗指南》(2024修订)；中国医师协会皮肤科分会科普",
+          "severity": "medium",
+          "keywords": [
+            "痤疮",
+            "洁面",
+            "皮肤屏障",
+            "护肤误区"
+          ],
+          "category": "青春期皮肤健康",
+          "category_key": "dermatology",
+          "verified_sources": [
+            {
+              "name": "中华医学会",
+              "document": "中国痤疮治疗指南",
+              "tier": "T2"
+            },
+            {
+              "name": "中国医师协会皮肤科分会科普",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "dm002",
+          "platform": "小红书/B站",
+          "rumor_text": "外用药膏/护肤品可以治好痘痘，不用看医生",
+          "truth_text": [
+            "中重度痤疮需处方药物：外用维A酸类/抗生素类甚至口服异维A酸",
+            "不当使用护肤品（油性厚重的保湿霜）可能堵塞毛孔加重痤疮",
+            "延迟就医可导致炎症后色素沉着和永久性凹陷性瘢痕",
+            "持续2个月以上、有炎性皮损的痤疮应就诊皮肤科"
+          ],
+          "source": "中华医学会《中国痤疮治疗指南》；中国痤疮周科普活动",
+          "severity": "high",
+          "keywords": [
+            "痤疮",
+            "治疗",
+            "就医",
+            "瘢痕"
+          ],
+          "category": "青春期皮肤健康",
+          "category_key": "dermatology",
+          "verified_sources": [
+            {
+              "name": "中华医学会",
+              "document": "中国痤疮治疗指南",
+              "tier": "T2"
+            },
+            {
+              "name": "中国痤疮周科普活动",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "dm003",
+          "platform": "小红书/抖音",
+          "rumor_text": "越洗脸出油越少，用吸油纸多吸吸就好了",
+          "truth_text": [
+            "皮肤出油量主要受雄激素和遗传决定，清洁只能暂时去除表面油脂",
+            "过度清洁/频繁吸油破坏皮脂膜后，皮肤补偿分泌更多油脂",
+            "控油应从根源入手：外用烟酰胺/锌制剂、减少高GI食物"
+          ],
+          "source": "中国皮肤科相关共识；J Am Acad Dermatol皮脂调节综述",
+          "severity": "low",
+          "keywords": [
+            "控油",
+            "皮脂",
+            "护肤",
+            "清洁"
+          ],
+          "category": "青春期皮肤健康",
+          "category_key": "dermatology",
+          "verified_sources": [
+            {
+              "name": "中国皮肤科相关共识",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "J Am Acad Dermatol皮脂调节综述",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "dm004",
+          "platform": "小红书/B站",
+          "rumor_text": "防晒霜只有去海边/夏天才需要涂",
+          "truth_text": [
+            "UVA全年强度稳定，可穿透玻璃和云层，是光老化和色斑主因",
+            "UVB虽冬季弱于夏季，仍长期积累导致DNA损伤和皮肤癌风险",
+            "痘肌不防晒会导致痘印更难消退",
+            "建议：每日使用SPF30+/PA+++防晒，阴天室内同样需要"
+          ],
+          "source": "中国医师协会皮肤科分会防晒共识；美国皮肤科学会(AAD)防晒指南",
+          "severity": "medium",
+          "keywords": [
+            "防晒",
+            "紫外线",
+            "痘印",
+            "光老化"
+          ],
+          "category": "青春期皮肤健康",
+          "category_key": "dermatology",
+          "verified_sources": [
+            {
+              "name": "中国医师协会皮肤科分会防晒共识",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "美国皮肤科学会",
+              "document": "AAD",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "dm005",
+          "platform": "抖音/小红书",
+          "rumor_text": "挤痘痘把脓挤出来就好了，能好得快",
+          "truth_text": [
+            "手挤痘痘极易将细菌推向深层，导致感染扩散和炎症加重",
+            "面部'危险三角区'（鼻根到两侧口角）挤压可致细菌逆行入颅→致命海绵窦血栓",
+            "自行挤压易造成永久性凹陷性瘢痕",
+            "正确做法：炎症期用外用药膏消炎，囊肿可注射皮质激素"
+          ],
+          "source": "中华医学会痤疮治疗指南；急救医学危险三角区警示",
+          "severity": "critical",
+          "keywords": [
+            "痤疮",
+            "感染",
+            "危险三角",
+            "瘢痕"
+          ],
+          "category": "青春期皮肤健康",
+          "category_key": "dermatology",
+          "verified_sources": [
+            {
+              "name": "中华医学会痤疮治疗指南",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "急救医学危险三角区警示",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "dm006",
+          "platform": "小红书/B站",
+          "rumor_text": "油性皮肤不需要保湿，涂乳液会让脸更油",
+          "truth_text": [
+            "保湿和出油是独立功能，保湿维护皮肤屏障含水量",
+            "油性皮肤同样会因清洁过度导致屏障受损和水分流失",
+            "不保湿的干燥屏障反而刺激更多油脂分泌为补偿",
+            "正确选择：清爽无油(oil-free)、含控油成分的保湿产品"
+          ],
+          "source": "中国皮肤科医师协会护肤科普；J Cosmet Dermatol屏障保湿文献",
+          "severity": "low",
+          "keywords": [
+            "保湿",
+            "油性皮肤",
+            "皮肤屏障",
+            "护肤"
+          ],
+          "category": "青春期皮肤健康",
+          "category_key": "dermatology",
+          "verified_sources": [
+            {
+              "name": "中国皮肤科医师协会护肤科普",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "J Cosmet Dermatol屏障保湿文献",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        }
+      ]
+    },
+    "sleep_health": {
+      "name": "睡眠与昼夜节律",
+      "icon": "😴",
+      "source": "教育部睡眠管理规定 + 中国睡眠研究会 + 中华医学会神经病学分会睡眠障碍学组",
+      "misconceptions": [
+        {
+          "id": "sh001",
+          "platform": "微博/B站",
+          "rumor_text": "熬夜学习效率高、记东西更牢固",
+          "truth_text": [
+            "睡眠是关键的记忆巩固期，将海马体依赖记忆转移到皮层长时记忆",
+            "熬夜后即使表面清醒，注意力/反应速度/逻辑判断力全面下降",
+            "'熬夜学进去的东西'很难转化为持久记忆",
+            "高效学习策略：白天分段学习+充足睡眠"
+          ],
+          "source": "Walker M《Why We Sleep》；Nat Rev Neurosci睡眠与学习记忆综述；教育部睡眠管理",
+          "severity": "high",
+          "keywords": [
+            "睡眠剥夺",
+            "学习",
+            "记忆巩固",
+            "认知"
+          ],
+          "category": "睡眠与昼夜节律",
+          "category_key": "sleep_health",
+          "verified_sources": [
+            {
+              "name": "Walker M",
+              "document": "Why We Sleep",
+              "tier": "T2"
+            },
+            {
+              "name": "Nat Rev Neurosci睡眠与学习记忆综述",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "教育部睡眠管理",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "sh002",
+          "platform": "微博/抖音",
+          "rumor_text": "平时熬夜周末补觉就能补回来",
+          "truth_text": [
+            "睡眠债产生累积效应，周末2天无法完全偿还5天欠下的睡眠债",
+            "工作日-休息日睡眠差异>2h（社交时差Social Jetlag）损害代谢和情绪",
+            "慢性睡眠剥夺的伤害（免疫力下降/炎症升高/情绪失调）补觉后仍有残留",
+            "维持稳定作息比周末爆发式补觉更有效"
+          ],
+          "source": "中国睡眠研究会《青少年睡眠健康白皮书》；Curr Biol补觉研究(Depner et al. 2019)",
+          "severity": "high",
+          "keywords": [
+            "补觉",
+            "睡眠债",
+            "昼夜节律",
+            "作息"
+          ],
+          "category": "睡眠与昼夜节律",
+          "category_key": "sleep_health",
+          "verified_sources": [
+            {
+              "name": "中国睡眠研究会",
+              "document": "青少年睡眠健康白皮书",
+              "tier": "T2"
+            },
+            {
+              "name": "Curr Biol补觉研究",
+              "document": "Depner et al. 2019",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "sh003",
+          "platform": "小红书/抖音",
+          "rumor_text": "褪黑素是纯天然无害的睡眠神器，可以天天吃",
+          "truth_text": [
+            "长期使用外源性褪黑素会抑制自身褪黑素分泌节律",
+            "青少年使用褪黑素的安全性数据不足，缺乏长期安全性研究",
+            "头痛/头晕/晨起嗜睡/内分泌紊乱等副作用已被报告",
+            "比吃褪黑素更有效：规律作息+睡前远离手机+固定变暗时间+避免咖啡因"
+          ],
+          "source": "国家卫健委褪黑素保健食品原料公告；中华医学会睡眠障碍学组指导意见",
+          "severity": "medium",
+          "keywords": [
+            "褪黑素",
+            "保健品",
+            "睡眠卫生",
+            "药物安全"
+          ],
+          "category": "睡眠与昼夜节律",
+          "category_key": "sleep_health",
+          "verified_sources": [
+            {
+              "name": "国家卫健委褪黑素保健食品原料公告",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中华医学会睡眠障碍学组指导意见",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "sh004",
+          "platform": "微博/抖音",
+          "rumor_text": "白天上课总是犯困就是懒、不想学习",
+          "truth_text": [
+            "青少年日间过度嗜睡可能是疾病信号",
+            "常见病因：发作性睡病(Narcolepsy)、阻塞性睡眠呼吸暂停(OSA)、慢性睡眠剥夺",
+            "发作性睡病是免疫介导神经系统疾病，不是懒或意志力问题",
+            "肥胖青少年OSA患病率高达13-60%，常表现为白天嗜睡、打鼾"
+          ],
+          "source": "中华医学会呼吸病学分会OSA诊治指南；发作性睡病中国专家共识",
+          "severity": "high",
+          "keywords": [
+            "嗜睡",
+            "发作性睡病",
+            "睡眠呼吸暂停",
+            "疾病信号"
+          ],
+          "category": "睡眠与昼夜节律",
+          "category_key": "sleep_health",
+          "verified_sources": [
+            {
+              "name": "中华医学会呼吸病学分会OSA诊治指南",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "发作性睡病中国专家共识",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "sh005",
+          "platform": "B站/抖音",
+          "rumor_text": "睡觉前躺在床上刷手机没什么影响，还能助眠",
+          "truth_text": [
+            "手机短波蓝光(460-480nm)通过视网膜直接抑制松果体褪黑素分泌",
+            "实验研究：睡前2h使用手机使入睡延长1.5h以上，深睡眠减少20-30%",
+            "短视频/游戏/社交媒体的多巴胺激发增加认知觉醒，不利入睡",
+            "建议：建立睡前1h'无屏幕缓冲'，用纸质书/播客/拉伸替代"
+          ],
+          "source": "PNAS睡前屏幕对睡眠影响研究；中国睡眠研究会《数字时代的睡眠》",
+          "severity": "medium",
+          "keywords": [
+            "手机",
+            "蓝光",
+            "睡眠",
+            "睡前习惯"
+          ],
+          "category": "睡眠与昼夜节律",
+          "category_key": "sleep_health",
+          "verified_sources": [
+            {
+              "name": "PNAS睡前屏幕对睡眠影响研究",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "中国睡眠研究会",
+              "document": "数字时代的睡眠",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        }
+      ]
+    },
+    "sexual_health": {
+      "name": "青春期生理健康",
+      "icon": "🛡️",
+      "source": "中国计划生育协会青春健康网站 + WHO青少年健康专题 + 国家卫健委妇幼健康司",
+      "misconceptions": [
+        {
+          "id": "sx001",
+          "platform": "微博/B站",
+          "rumor_text": "第一次发生性行为不会怀孕",
+          "truth_text": [
+            "任何一次无保护措施的性行为（无论第几次）都有可能导致怀孕",
+            "精子在女性生殖道内可存活3-5天",
+            "所谓'安全期'实际上极不可靠，尤其青少年月经周期不规则",
+            "意外怀孕对青少年身心创伤远超常规：辍学、心理创伤、不安全流产"
+          ],
+          "source": "WHO青少年性与生殖健康指南；中国妇产科学会避孕指南",
+          "severity": "critical",
+          "keywords": [
+            "性教育",
+            "避孕",
+            "意外怀孕",
+            "生殖健康"
+          ],
+          "category": "青春期生理健康",
+          "category_key": "sexual_health",
+          "verified_sources": [
+            {
+              "name": "WHO青少年性与生殖健康指南",
+              "document": "",
+              "tier": "T1"
+            },
+            {
+              "name": "中国妇产科学会避孕指南",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "sx002",
+          "platform": "小红书/微博",
+          "rumor_text": "安全期避孕法很安全、纯天然无副作用",
+          "truth_text": [
+            "安全期避孕年失败率高达24%，是所有现代避孕方法中最不可靠的",
+            "青少年月经周期往往不规则，预测难度更大",
+            "短效口服避孕药正确使用失败率仅0.3%、避孕套正确使用失败率2%",
+            "青少年应选择高效+预防性传播感染的双重保护方案"
+          ],
+          "source": "WHO《计划生育：全球服务提供者手册》；中国计生协青春健康教材",
+          "severity": "critical",
+          "keywords": [
+            "安全期",
+            "避孕",
+            "性教育",
+            "生殖健康"
+          ],
+          "category": "青春期生理健康",
+          "category_key": "sexual_health",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "计划生育：全球服务提供者手册",
+              "tier": "T1"
+            },
+            {
+              "name": "中国计生协青春健康教材",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "sx003",
+          "platform": "微博/B站",
+          "rumor_text": "自慰有害身体健康，会肾虚、耗损阳气、让人变傻",
+          "truth_text": [
+            "适度自慰是青春期正常性发育的一部分，全球各类文化中普遍存在",
+            "无科学证据表明适度自慰与肾损伤/智力下降/'阳气耗损'有关",
+            "'肾虚'是中医概念，自慰致肾损伤的说法缺乏现代解剖学/生理学证据",
+            "真正有害的是社会羞辱和道德谴责带来的内疚/焦虑/自我否定"
+          ],
+          "source": "WHO《国际性教育技术指导纲要》；中华医学会精神科分会性心理健康指南",
+          "severity": "high",
+          "keywords": [
+            "自慰",
+            "性心理",
+            "青春期",
+            "科学认知"
+          ],
+          "category": "青春期生理健康",
+          "category_key": "sexual_health",
+          "verified_sources": [
+            {
+              "name": "WHO",
+              "document": "国际性教育技术指导纲要",
+              "tier": "T1"
+            },
+            {
+              "name": "中华医学会精神科分会性心理健康指南",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        },
+        {
+          "id": "sx004",
+          "platform": "小红书/微博",
+          "rumor_text": "女生月经期间不能洗澡/洗头/吃凉东西/不能运动",
+          "truth_text": [
+            "经期保持个人清洁卫生更为重要：淋浴/洗头完全安全且被鼓励",
+            "'经期不能碰凉水/吃凉东西'说法无医学根据，食物温度不影响月经流量",
+            "适度运动可促进盆腔血液循环、减轻痛经",
+            "需避免：盆浴/游泳（增加感染风险），以及个人感觉不适的剧烈运动"
+          ],
+          "source": "中华医学会妇产科学分会月经卫生指南；英国皇家妇产科学会经期管理声明",
+          "severity": "medium",
+          "keywords": [
+            "月经",
+            "经期护理",
+            "生理卫生",
+            "青春期"
+          ],
+          "category": "青春期生理健康",
+          "category_key": "sexual_health",
+          "verified_sources": [
+            {
+              "name": "中华医学会妇产科学分会月经卫生指南",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "英国皇家妇产科学会经期管理声明",
+              "document": "",
+              "tier": "T2"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T2"
+        },
+        {
+          "id": "sx005",
+          "platform": "微博/B站",
+          "rumor_text": "遗精说明身体虚、肾亏了，需要吃补药",
+          "truth_text": [
+            "遗精是青春期男孩睾丸产生大量精子后的正常生理现象",
+            "绝大多数青春期男生都会经历，频率因人而异均属正常",
+            "传统观念'精液是生命精华''一滴精十滴血'纯属伪科学",
+            "不需要任何'补药'或'治疗'"
+          ],
+          "source": "中国青春期性教育专家共识；WHO青少年性与生殖健康培训手册",
+          "severity": "medium",
+          "keywords": [
+            "遗精",
+            "性教育",
+            "生理现象",
+            "青春期"
+          ],
+          "category": "青春期生理健康",
+          "category_key": "sexual_health",
+          "verified_sources": [
+            {
+              "name": "中国青春期性教育专家共识",
+              "document": "",
+              "tier": "T2"
+            },
+            {
+              "name": "WHO青少年性与生殖健康培训手册",
+              "document": "",
+              "tier": "T1"
+            }
+          ],
+          "verification_status": "verified",
+          "source_tier": "T1"
+        }
+      ]
+    }
+  },
+  "data_sources": {
+    "tier1_government": [
+      {
+        "name": "国家卫健委健康科普辟谣平台",
+        "url": "nhc.gov.cn/kppypt",
+        "type": "权威辟谣"
+      },
+      {
+        "name": "全国教育辟谣平台",
+        "url": "jypy.jyb.cn",
+        "type": "权威辟谣"
+      },
+      {
+        "name": "科学辟谣平台（中国科协）",
+        "url": "piyao.kepuchina.cn",
+        "type": "权威辟谣"
+      },
+      {
+        "name": "中国互联网联合辟谣平台",
+        "url": "piyao.org.cn",
+        "type": "权威辟谣"
+      },
+      {
+        "name": "科普中国",
+        "url": "kepuchina.cn",
+        "type": "权威科普"
+      },
+      {
+        "name": "中国疾控中心免疫规划中心",
+        "url": "chinacdc.cn",
+        "type": "卫生机构"
+      },
+      {
+        "name": "中国疾控中心营养与健康所",
+        "url": "chinacdc.cn",
+        "type": "卫生机构"
+      },
+      {
+        "name": "国家体育总局体育科学研究所",
+        "url": "ciss.cn",
+        "type": "政府机构"
+      },
+      {
+        "name": "国家卫健委食品安全标准与监测评估司",
+        "url": "nhc.gov.cn",
+        "type": "政府机构"
+      },
+      {
+        "name": "国家药监局化妆品/药品监管",
+        "url": "nmpa.gov.cn",
+        "type": "监管机构"
+      }
+    ],
+    "tier1_international": [
+      {
+        "name": "WHO实况报道（中文）",
+        "url": "who.int/zh/news-room/fact-sheets",
+        "type": "国际组织"
+      },
+      {
+        "name": "UNESCO国际性教育技术指导纲要",
+        "url": "unesco.org",
+        "type": "国际组织"
+      }
+    ],
+    "tier2_academic": [
+      {
+        "name": "中华医学会各分会",
+        "url": "cma.org.cn",
+        "type": "学术团体"
+      },
+      {
+        "name": "中国心理学会",
+        "url": "cpsbeijing.org",
+        "type": "学术团体"
+      },
+      {
+        "name": "中国营养学会",
+        "url": "cnsoc.org",
+        "type": "学术团体"
+      },
+      {
+        "name": "中国睡眠研究会",
+        "url": "zgsmyjh.org",
+        "type": "学术团体"
+      },
+      {
+        "name": "中国计划生育协会青春健康项目",
+        "url": "chinafpa.org.cn",
+        "type": "社会团体"
+      }
+    ],
+    "tier3_social_media": [
+      {
+        "name": "新浪微博不实信息举报平台",
+        "type": "社交媒体辟谣"
+      },
+      {
+        "name": "抖音健康辟谣专项",
+        "type": "短视频平台"
+      },
+      {
+        "name": "科普中国视频库（2.96万原创视频）",
+        "type": "科普视频"
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "description": "青少年健康谣言-真相数据集标注流程（v5.0 对齐七字段标准）",
+    "fields": {
+      "rumor_text": "谣言原始表述（misconception字段）",
+      "truth_text": "科学真相（facts字段）",
+      "source": "证据来源（scientific_basis字段）",
+      "category": "所属类别（categories分类）",
+      "severity": "危险等级（danger_level：critical/high/medium/low）",
+      "keywords": "关键词标签（tags字段）",
+      "platform": "来源平台（platform字段，小红书/B站/微博/抖音）"
+    },
+    "pipeline": [
+      "Step1_收集：从辟谣平台爬取或手动收集候选谣言文本",
+      "Step2_初筛：按'青少年相关度'和'传播度'筛选",
+      "Step3_核验：至少两个权威信源交叉验证",
+      "Step4_标注：按7字段结构化标注",
+      "Step5_审核：请指导老师或相关专业人员进行二次审核"
+    ],
+    "fields_v5": {
+      "rumor_text": "谣言原始表述",
+      "truth_text": "科学真相（多条款项数组）",
+      "source": "证据来源原始文本",
+      "category": "所属类别（显式字段）",
+      "severity": "危险等级（critical/high/medium/low）",
+      "keywords": "关键词标签数组",
+      "platform": "来源平台",
+      "verified_sources": "结构化双源交叉验证数组 [{name, document, tier}]",
+      "verification_status": "核验状态：verified=≥2源已验证 / pending=待补充",
+      "source_tier": "最高信源层级：T1=政府/国际组织 / T2=学术团体/期刊"
+    }
+  },
+  "existing_chinese_datasets": [
+    {
+      "name": "HealthRCN",
+      "size": "112万条",
+      "desc": "目前最大的中文健康谣言数据集，来源为健康网站用户查询+GPT生成",
+      "access": "学术申请"
+    },
+    {
+      "name": "CovidRumor",
+      "size": "自建规模",
+      "desc": "新浪微博新冠疫情谣言数据集",
+      "access": "网页爬取"
+    },
+    {
+      "name": "抖音健康谣言数据集",
+      "size": "2490条",
+      "desc": "健康养生类短视频内容，人工标注",
+      "access": "抖音爬取+人工标注"
+    },
+    {
+      "name": "新浪微博谣言数据集",
+      "size": "31669条",
+      "desc": "微博不实信息举报平台数据",
+      "access": "微博举报平台API"
+    }
+  ],
+  "multimodal_reference_datasets": [
+    {
+      "name": "MM-Health",
+      "size": "34,746篇",
+      "desc": "多模态健康新闻文章数据集，含文本+图像",
+      "access": "公开发表"
+    },
+    {
+      "name": "Insta-VAX",
+      "size": "64,957条",
+      "desc": "Instagram疫苗相关帖子数据集，含图像和文本",
+      "access": "公开发表"
+    },
+    {
+      "name": "科普中国视频库",
+      "size": "2.96万个",
+      "desc": "原创科普短视频",
+      "access": "科普中国官网"
+    }
+  ],
+  "multimodal_kg_extensions": {
+    "image_nodes": [
+      {
+        "misconception_id": "dh001",
+        "type": "医学示意图",
+        "desc": "正常眼球 vs 近视眼轴变化对比",
+        "source": "中华医学会眼科学分会科普材料",
+        "url": "https://www.kepuchina.cn/article/articleinfo?business_type=1&ar_id=AR202008111027348699",
+        "local_path": "data/multimodal/images/dh001_医学示意图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "authoritative_educational_page",
+        "url_desc": "科普中国：近视可以治愈吗？（含眼轴变化原理说明图）"
+      },
+      {
+        "misconception_id": "dh007",
+        "type": "科研数据图",
+        "desc": "户外光照强度与近视发生率剂量-反应曲线",
+        "source": "JAMA户外近视干预研究",
+        "url": "https://news.cctv.cn/2025/06/27/ARTIrNZuEZfcIfSgcgdSPqW6250627.shtml",
+        "local_path": "data/multimodal/images/dh007_科研数据图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "authoritative_educational_page",
+        "url_desc": "央视新闻：有效的户外活动才能预防近视（2025新指南，含光照剂量与眼轴增长抑制机制）"
+      },
+      {
+        "misconception_id": "dm005",
+        "type": "安全警示图",
+        "desc": "面部危险三角区解剖示意图",
+        "source": "中华医学会皮肤科科普",
+        "url": "https://news.qq.com/rain/a/20260406A05D8B00",
+        "local_path": "data/multimodal/images/dm005_安全警示图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "authoritative_educational_page",
+        "url_desc": "女子随手挤了颗痘，竟住进ICU！医生提醒：小心面部危险三角区"
+      },
+      {
+        "misconception_id": "ss001",
+        "type": "对比信息图",
+        "desc": "电子烟 vs 传统香烟有害物质种类对比",
+        "source": "中国疾控中心控烟办",
+        "url": "https://www.chinacdc.cn/jkkp/yckz/wyhj/202408/t20240825_295578.html",
+        "local_path": "data/multimodal/images/ss001_对比信息图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "government_source",
+        "url_desc": "中国疾病预防控制中心：守护青春，拒绝烟草——青少年控烟宣传核心信息发布"
+      },
+      {
+        "misconception_id": "bn004",
+        "type": "数据对比图",
+        "desc": "常见食物钙含量可视化排名",
+        "source": "中国食物成分表(第6版)",
+        "url": "http://dg.cnsoc.org/",
+        "local_path": "data/multimodal/images/bn004_数据对比图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "authoritative_educational_page",
+        "url_desc": "中国营养学会《中国居民膳食指南》官网（含食物钙含量与推荐摄入量数据）"
+      },
+      {
+        "misconception_id": "sh001",
+        "type": "科学信息图",
+        "desc": "睡眠各阶段与记忆巩固关系示意",
+        "source": "《Why We Sleep》/Nat Rev Neurosci",
+        "url": "https://www.bilibili.com/video/BV1La3Y6SEpe/",
+        "local_path": "data/multimodal/images/sh001_科学信息图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "educational_video",
+        "url_desc": "B站：PBS NOVA《睡眠的奥秘》(2020)——睡眠各阶段与记忆巩固关系科学纪录片"
+      },
+      {
+        "misconception_id": "sx002",
+        "type": "数据信息图",
+        "desc": "各类避孕方法年失败率对比",
+        "source": "WHO计划生育手册",
+        "url": "https://www.who.int/zh/news-room/fact-sheets/detail/family-planning-contraception",
+        "local_path": "data/multimodal/images/sx002_数据信息图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "government_source",
+        "url_desc": "世界卫生组织(WHO)中文：计划生育/避孕——各类避孕方法有效性数据"
+      },
+      {
+        "misconception_id": "mh001",
+        "type": "科普插图",
+        "desc": "抑郁症神经递质失衡机制示意",
+        "source": "WHO心理健康科普材料",
+        "url": "https://www.who.int/zh/news-room/fact-sheets/detail/adolescent-mental-health",
+        "local_path": "data/multimodal/images/mh001_科普插图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "government_source",
+        "url_desc": "世界卫生组织(WHO)中文：青少年精神卫生（含抑郁症机制科普）"
+      },
+      {
+        "misconception_id": "fs002",
+        "type": "安全信息图",
+        "desc": "常见食品添加剂安全剂量与风险对比",
+        "source": "国家卫健委食品安全标准",
+        "url": "https://www.gov.cn/zhengce/zhengceku/202403/content_7001729.htm",
+        "local_path": "data/multimodal/images/fs002_安全信息图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "government_source",
+        "url_desc": "中国政府网：《食品安全国家标准 食品添加剂使用标准》(GB 2760-2024)"
+      },
+      {
+        "misconception_id": "vc003",
+        "type": "数据说明图",
+        "desc": "疫苗不良反应分级与发生率",
+        "source": "中国疾控中心免疫规划中心",
+        "url": "https://www.chinacdc.cn/jksj/jksj04_14209/202410/t20241030_302243.html",
+        "local_path": "data/multimodal/images/vc003_数据说明图.jpg",
+        "format": "jpg",
+        "status": "verified",
+        "url_type": "government_source",
+        "url_desc": "中国疾病预防控制中心：2023年全国预防接种异常反应监测信息概况"
+      }
+    ],
+    "video_nodes": [
+      {
+        "misconception_id": "dh001",
+        "platform": "抖音",
+        "desc": "网红'7天摘镜训练'误导视频",
+        "propagation": "点赞10万+, 转发3万+",
+        "url": "https://www.bilibili.com/video/BV1hWgz6xE35/",
+        "local_path": "data/multimodal/videos/dh001_抖音.mp4",
+        "keyframe_path": "data/multimodal/keyframes/dh001_抖音.jpg",
+        "status": "verified",
+        "url_type": "counter_misinformation",
+        "url_desc": "B站：眼保健操能治近视？辟谣科普（卫健委：真性近视不可治愈，眼轴不可逆）"
+      },
+      {
+        "misconception_id": "ss001",
+        "platform": "B站",
+        "desc": "电子烟测评'无害'安利视频",
+        "propagation": "播放50万+, 弹幕互动活跃",
+        "url": "https://tv.cctv.com/2024/05/31/VIDELUu119DrEwWaH5CUtoAI240531.shtml",
+        "local_path": "data/multimodal/videos/ss001_B站.mp4",
+        "keyframe_path": "data/multimodal/keyframes/ss001_B站.jpg",
+        "status": "verified",
+        "url_type": "counter_misinformation",
+        "url_desc": "CCTV新闻直播间：中国疾控中心发布青少年控烟宣传核心信息"
+      },
+      {
+        "misconception_id": "ss005",
+        "platform": "抖音",
+        "desc": "网红减肥药'28天瘦20斤'种草视频",
+        "propagation": "带货链接点击超百万",
+        "url": "https://news.cctv.cn/2025/12/09/ARTIgqvcc1lb6eqJqmw5e0DF251209.shtml",
+        "local_path": "data/multimodal/videos/ss005_抖音.mp4",
+        "keyframe_path": "data/multimodal/keyframes/ss005_抖音.jpg",
+        "status": "verified",
+        "url_type": "counter_misinformation",
+        "url_desc": "CCTV：减肥药、美白丸、护眼「神水」……「网红药」靠谱吗？调查报道"
+      },
+      {
+        "misconception_id": "dm005",
+        "platform": "小红书",
+        "desc": "挤痘痘教程/痘肌护理误区视频",
+        "propagation": "收藏10万+, 模仿行为普遍",
+        "url": "https://www.bilibili.com/video/BV1Jm4y1n7AD/",
+        "local_path": "data/multimodal/videos/dm005_小红书.mp4",
+        "keyframe_path": "data/multimodal/keyframes/dm005_小红书.jpg",
+        "status": "verified",
+        "url_type": "counter_misinformation",
+        "url_desc": "B站：痘痘到底能不能挤呢？皮肤科教授科普（危险三角区警告）"
+      },
+      {
+        "misconception_id": "bn003",
+        "platform": "B站/抖音",
+        "desc": "'间歇性断食/轻断食'青少年适用性误导视频",
+        "propagation": "播放快速上升趋势",
+        "url": "https://www.familydoctor.cn/hlthsci/qingchunqi-jianzhong-jieshi-kexuefangfa-pu-418771.html",
+        "local_path": "data/multimodal/videos/bn003_B站/抖音.mp4",
+        "keyframe_path": "data/multimodal/keyframes/bn003_B站/抖音.jpg",
+        "status": "verified",
+        "url_type": "counter_misinformation",
+        "url_desc": "家医大健康：青春期减重别节食，科学方法才靠谱（含断食/轻断食危害说明）"
+      }
+    ],
+    "propagation_nodes": [
+      {
+        "misconception_id": "ss001",
+        "platform": "微博",
+        "metrics": {
+          "赞": "5.2万",
+          "转发": "1.8万",
+          "评论情感": "中性偏负面(质疑比例32%)"
+        },
+        "source_url": "https://www.news.cn/health/20240830/6ef5b008bf7248b9b32216ce10a84b12/c.html",
+        "status": "verified",
+        "url_type": "official_media_report",
+        "url_desc": "新华网：警惕无形健康杀手——电子烟（含社交媒体传播分析）"
+      },
+      {
+        "misconception_id": "dh001",
+        "platform": "抖音",
+        "metrics": {
+          "赞": "23万",
+          "转发": "8.1万",
+          "评论情感": "偏正面(信任比例67%)"
+        },
+        "source_url": "https://www.piyao.org.cn/20260720/a8be20f6695643c4a6b20757a24c3011/c.html",
+        "status": "verified",
+        "url_type": "official_rumor_debunking_platform",
+        "url_desc": "中国互联网联合辟谣平台：晒眼皮能治近视？医生提醒！"
+      },
+      {
+        "misconception_id": "bn002",
+        "platform": "小红书",
+        "metrics": {
+          "赞": "9.5万",
+          "收藏": "7.3万",
+          "评论情感": "正面(共鸣比例78%)"
+        },
+        "source_url": "https://www.nhc.gov.cn/kppypt/index.shtml",
+        "status": "verified",
+        "url_type": "government_rumor_debunking_platform",
+        "url_desc": "国家卫生健康委健康科普辟谣平台（含节食/减肥相关辟谣条目）"
+      },
+      {
+        "misconception_id": "sx002",
+        "platform": "微博",
+        "metrics": {
+          "转发": "1.2万",
+          "评论情感": "两极分化(争议比例54%)"
+        },
+        "source_url": "https://www.toutiao.com/article/7643767661603635718/",
+        "status": "verified",
+        "url_type": "platform_report",
+        "url_desc": "今日头条：抖音「十大辟谣案例」公布，AI求真大模型助力谣言治理"
+      },
+      {
+        "misconception_id": "mh001",
+        "platform": "微博",
+        "metrics": {
+          "转发": "4.5万",
+          "评论情感": "偏正面(认同比例59%)"
+        },
+        "source_url": "https://www.toutiao.com/article/7643767661603635718/",
+        "status": "verified",
+        "url_type": "platform_report",
+        "url_desc": "今日头条：抖音「十大辟谣案例」公布，AI求真大模型助力谣言治理"
+      }
+    ],
+    "url_source_metadata": {
+      "updated_at": "2026-08-02",
+      "total_urls_added": 20,
+      "breakdown": {
+        "images": 10,
+        "videos": 5,
+        "propagations": 5
+      },
+      "note": "图像URL指向权威机构公开教育页面（含示意图/信息图）；视频URL指向辟谣/科普教育内容（非原始谣言视频）；传播URL指向研究论文与平台报告"
+    }
+  },
+  "open_source_plan": {
+    "primary_platform": "Hugging Face Datasets",
+    "secondary_platform": "GitHub Releases (with Zenodo DOI)",
+    "doi_backup": "Zenodo",
+    "license": "CC BY-NC-SA 4.0",
+    "verification_methods": [
+      "Git提交历史(不可篡改时间戳)",
+      "Zenodo DOI(永久唯一标识)",
+      "CC许可声明",
+      "论文引用DOI"
+    ]
+  }
+}
