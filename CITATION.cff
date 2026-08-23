@@ -3,8 +3,8 @@ title: "Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard)"
 message: "If you use this dataset in your research, please cite it as below."
 type: dataset
 authors:
-  - given-names: Lyuniu
-    family-names: Heng
+  - given-names: Niuheng
+    family-names: Lyu
     email: 67747441@qq.com
 keywords:
   - health misinformation
@@ -21,8 +21,8 @@ preferred-citation:
   type: dataset
   title: "Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard)"
   authors:
-    - given-names: Lyuniu
-      family-names: Heng
+    - given-names: Niuheng
+      family-names: Lyu
   year: 2026
   publisher: "Zenodo"
   doi: "10.5281/zenodo.21774699"
