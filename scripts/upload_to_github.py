@@ -156,17 +156,17 @@ def upload_all_files(token):
 
 def create_release(token):
     """Create a GitHub release with tag v1.0."""
-    print(f"\n[3/3] Creating release: v1.0")
+    print(f"\n[3/3] Creating release: v2.0")
     data = {
-        "tag_name": "v1.0",
+        "tag_name": "v2.0",
         "target_commitish": "main",
-        "name": "MentalGuard v1.0 - Initial Release",
+        "name": "MentalGuard v2.0 - Expanded Release",
         "body": (
-            "## MentalGuard v1.0 - Chinese Adolescent Health Misinformation Knowledge Graph\n\n"
+            "## MentalGuard v2.0 - Chinese Adolescent Health Misinformation Knowledge Graph\n\n"
             "### Contents\n"
-            "- 61 misconception-fact pairs across 9 adolescent health domains\n"
-            "- 12-field structured annotation with T1-T3 source hierarchy\n"
-            "- 100% dual-source cross-verification (73.8% with T1 government/WHO sources)\n"
+            "- 738 misconception-fact pairs across 9 adolescent health domains (expanded from v1.0's 61)\n"
+            "- 12-field structured annotation with T1-T2 source hierarchy\n"
+            "- 100% dual-source cross-verification (78.9% with T1 government/WHO sources)\n"
             "- 20 multi-modal nodes (10 images + 5 videos + 5 propagation) with traceable URLs\n"
             "- CC BY-NC-SA 4.0 license\n\n"
             "### Citation\n"
@@ -237,7 +237,7 @@ def main():
     print("\n" + "=" * 60)
     print("DONE!")
     print(f"  Repository: https://github.com/{GITHUB_USERNAME}/{REPO_NAME}")
-    print(f"  Release:    https://github.com/{GITHUB_USERNAME}/{REPO_NAME}/releases/tag/v1.0")
+    print(f"  Release:    https://github.com/{GITHUB_USERNAME}/{REPO_NAME}/releases/tag/v2.0")
     print("=" * 60)
     print("\nNext steps:")
     print(f"  1. Upload to HuggingFace Datasets for DOI")
