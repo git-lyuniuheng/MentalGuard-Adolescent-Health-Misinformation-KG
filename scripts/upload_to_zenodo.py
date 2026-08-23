@@ -79,7 +79,7 @@ def main():
     # Step 2: Upload files
     print("\n[Step 2] Uploading files...")
     files_to_upload = [
-        ("data/mentalguard_v1.0.json", "mentalguard_v1.0.json"),
+        ("data/mentalguard_v2.0.json", "mentalguard_v2.0.json"),
         ("data/schema.json", "schema.json"),
         ("README.md", "README.md"),
         ("LICENSE", "LICENSE"),
@@ -117,14 +117,17 @@ def main():
             "upload_type": "dataset",
             "description": (
                 "<p>MentalGuard is the first multi-modal knowledge graph (KG) designed for "
-                "Chinese adolescent health misinformation detection. It covers three critical "
-                "domains: mental health, campus food safety, and vaccine-related rumors.</p>"
+                "Chinese adolescent health misinformation detection. The v2.0 release expands "
+                "to 738 verified rumor-truth pairs across 9 adolescent health domains "
+                "(mental health, food safety, vaccine, digital health & myopia, substance safety, "
+                "body image & nutrition, dermatology, sleep health, sexual health).</p>"
                 "<p><strong>Key features:</strong></p>"
                 "<ul>"
-                "<li>24 verified rumor-truth pairs with multi-source validation</li>"
-                "<li>T1-T3 tiered source hierarchy (NHC, WHO, China CDC)</li>"
-                "<li>Four modality support (text, image, video, audio)</li>"
-                "<li>Structured schema with 12+ annotation fields per entry</li>"
+                "<li>738 rumor-truth pairs with 100% dual-source cross-validation</li>"
+                "<li>T1-T2 tiered source hierarchy (NHC, WHO, China CDC, FDA, etc.)</li>"
+                "<li>Four modality support (text, image, video, propagation)</li>"
+                "<li>Structured schema with 12 annotation fields per entry</li>"
+                "<li>Expanded from v1.0 (61 pairs) on 2026-08-22 with unchanged methodology</li>"
                 "</ul>"
                 "<p>GitHub: <a href=\"https://github.com/git-lyuniuheng/MentalGuard-Adolescent-Health-Misinformation-KG\">https://github.com/git-lyuniuheng/MentalGuard-Adolescent-Health-Misinformation-KG</a></p>"
             ),
@@ -149,7 +152,7 @@ def main():
             "license": "CC-BY-NC-SA-4.0",
             "access_right": "open",
             "communities": [],
-            "version": "1.0",
+            "version": "2.0",
             "language": "eng",
             "subjects": [
                 {"subject": "Health Misinformation"},
