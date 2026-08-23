@@ -15,8 +15,8 @@ keywords:
   - Chinese
   - fact-checking
 license: CC-BY-NC-SA-4.0
-version: "v1.0"
-date-released: "2026-08-03"
+version: "v2.0"
+date-released: "2026-08-22"
 preferred-citation:
   type: dataset
   title: "Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard)"
