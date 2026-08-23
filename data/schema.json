@@ -1,10 +1,10 @@
 # 完整字段模式定义 (Schema)
-# MentalGuard v1.0 数据集
-# 更新日期: 2026-08-03
+# MentalGuard v2.0 数据集
+# 更新日期: 2026-08-23
 
-schema_version: "1.0"
-dataset_version: "v5.1"
-total_records: 61
+schema_version: "2.0"
+dataset_version: "v2.0"
+total_records: 738
 total_modal_nodes: 20
 
 # ===== 顶层结构 =====
