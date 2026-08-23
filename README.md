@@ -212,7 +212,6 @@ Lyu, Niuheng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (
 
 - **邮箱**: 67747441@qq.com
 - **GitHub**: [git-lyuniuheng](https://github.com/git-lyuniuheng)
-- **论文**: IEEE ICDM 2026 Teen Research Symposium
 
 ---
 
