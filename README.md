@@ -8,7 +8,7 @@
 
 ## 📋 数据集简介
 
-**MentalGuard** 是一个专门面向 12-18 岁青少年群体的中文健康谣言知识图谱，旨在解决社交媒体平台上青少年健康信息污染问题。数据集覆盖 9 大青少年高频健康领域，包含 61 条高质量谣言-真相配对，采用 12 字段结构化标注体系，并融合文本、图像、视频、传播特征四模态知识。
+**MentalGuard** 是一个专门面向 12-18 岁青少年群体的中文健康谣言知识图谱，旨在解决社交媒体平台上青少年健康信息污染问题。数据集覆盖 9 大青少年高频健康领域，包含 738 条高质量谣言-真相配对（由 v1.0 的 61 条扩展 12 倍），采用 12 字段结构化标注体系，并融合文本、图像、视频、传播特征四模态知识。构建方法（双源交叉验证）保持不变。
 
 该数据集为 IEEE ICDM 2026 Teen Research Symposium 论文的核心贡献，可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
 
@@ -18,15 +18,15 @@
 
 | 统计项 | 数值 |
 |--------|------|
-| **版本** | v1.0 (基于 MentalGuard v5.1) |
-| **谣言-真相配对数** | 61 |
+| **版本** | v2.0 (由 v1.0 / v5.1 的 61 条扩展至 738 条) |
+| **谣言-真相配对数** | 738 |
 | **覆盖类别数** | 9 |
 | **标注字段数** | 12 |
-| **双源验证覆盖率** | 100% (61/61) |
-| **T1 信源覆盖率** | 73.8% (45/61) |
-| **多模态节点总数** | 20（10 图像 + 5 视频 + 5 传播） |
+| **双源验证覆盖率** | 100% (738/738) |
+| **T1 信源覆盖率** | 78.9% (582/738) |
+| **多模态节点总数** | 20（10 图像 + 5 视频 + 5 传播，沿用 v1.0） |
 | **URL 可回溯率** | 95% (19/20 HTTP 200) |
-| **危险等级分布** | critical: 6 / high: 23 / medium: 24 / low: 8 |
+| **危险等级分布** | critical: 34 / high: 148 / medium: 261 / low: 295 |
 | **信源层级** | T1（9 个政府/国际机构）、T2（6 个学术团体）、T3（3 个社交媒体平台） |
 | **传播平台覆盖** | 微博 / 抖音 / 小红书 / B站 |
 | **语言** | 中文（简体） |
@@ -36,15 +36,15 @@
 
 | 序号 | 类别名称 | 英文标识 | 记录数 |
 |------|---------|---------|--------|
-| 1 | 青少年心理健康 | mental_health | 10 |
-| 2 | 校园食品安全 | food_safety | 7 |
-| 3 | 疫苗与健康 | vaccine | 7 |
-| 4 | 数字健康与近视防控 | digital_health | 7 |
-| 5 | 成瘾物质与功能饮品 | substance_safety | 7 |
-| 6 | 饮食与身体形象 | body_image_nutrition | 7 |
-| 7 | 青春期皮肤健康 | dermatology | 6 |
-| 8 | 睡眠与昼夜节律 | sleep_health | 5 |
-| 9 | 青春期生理健康 | sexual_health | 5 |
+| 1 | 青少年心理健康 | mental_health | 81 |
+| 2 | 校园食品安全 | food_safety | 86 |
+| 3 | 疫苗与健康 | vaccine | 77 |
+| 4 | 数字健康与近视防控 | digital_health | 83 |
+| 5 | 成瘾物质与功能饮品 | substance_safety | 84 |
+| 6 | 饮食与身体形象 | body_image_nutrition | 81 |
+| 7 | 青春期皮肤健康 | dermatology | 81 |
+| 8 | 睡眠与昼夜节律 | sleep_health | 81 |
+| 9 | 青春期生理健康 | sexual_health | 84 |
 
 ---
 
@@ -123,12 +123,16 @@ MentalGuard-Adolescent-Health-Misinformation-KG/
 ├── LICENSE                            # 开源协议 (CC BY-NC-SA 4.0)
 ├── .gitignore                         # Git 忽略规则
 ├── data/
-│   ├── mentalguard_v1.0.json          # 主数据文件 (61 条谣言-真相配对 + 多模态节点)
+│   ├── mentalguard_v1.0.json          # 历史版本主数据文件 (61 条，v1.0 发布)
+│   ├── mentalguard_v2.0.json          # 主数据文件 (738 条谣言-真相配对 + 多模态节点)
 │   └── schema.json                    # 字段说明与数据模式
 ├── scripts/
-│   ├── build_dataset.py               # 数据集构建脚本（五阶段流水线）
+│   ├── build_dataset.py               # 数据集构建脚本（五阶段流水线，v1.0）
+│   ├── build_dataset_v6.py            # v2.0 扩展构建脚本（合并 9 个 data_*.py 模块）
+│   ├── data_mh.py / data_fs.py / data_vx.py / data_dh.py / data_ss.py / data_bn.py / data_dm.py / data_sh.py / data_sx.py  # 九类新增记录模块
 │   ├── add_multimodal_urls.py         # 多模态节点 URL 填充脚本
-│   └── verify_urls.py                 # URL 可访问性验证脚本
+│   ├── verify_urls.py                 # URL 可访问性验证脚本
+│   └── verify_v2.py                   # v2.0 数据集完整性校验
 └── docs/
     └── annotation_guidelines.md       # 标注规范详细说明
 ```
@@ -142,7 +146,7 @@ MentalGuard-Adolescent-Health-Misinformation-KG/
 ```python
 import json
 
-with open("data/mentalguard_v1.0.json", "r", encoding="utf-8") as f:
+with open("data/mentalguard_v2.0.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # 查看元数据
@@ -189,7 +193,7 @@ dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
   author    = {Lyuniu Heng},
   year      = {2026},
   month     = {August},
-  version   = {v1.0},
+  version   = {v2.0},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.21774699},
   url       = {https://github.com/git-lyuniuheng/MentalGuard-Adolescent-Health-Misinformation-KG}
@@ -199,7 +203,7 @@ dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
 ### APA
 
 ```
-Lyuniu Heng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard) (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21774699
+Lyuniu Heng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard) (v2.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21774699
 ```
 
 ---
