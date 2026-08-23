@@ -10,7 +10,7 @@
 
 **MentalGuard** 是一个专门面向 12-18 岁青少年群体的中文健康谣言知识图谱，旨在解决社交媒体平台上青少年健康信息污染问题。数据集覆盖 9 大青少年高频健康领域，包含 738 条高质量谣言-真相配对（由 v1.0 的 61 条扩展 12 倍），采用 12 字段结构化标注体系，并融合文本、图像、视频、传播特征四模态知识。构建方法（双源交叉验证）保持不变。
 
-该数据集可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
+该数据集为 IEEE ICDM 2026 Teen Research Symposium 论文的核心贡献，可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
 
 ---
 
@@ -95,20 +95,20 @@
 
 ### 危险等级分类标准
 
-| 等级 | 判定标准 | 数量 |
-|------|---------|------|
-| `critical` | 可能导致死亡/永久残疾 | 6 |
-| `high` | 可能导致严重健康损害 | 23 |
-| `medium` | 可能导致中度损害/经济损失 | 24 |
-| `low` | 主要为认知误区 | 8 |
+| 等级 | 判定标准 | 数量（v2.0） |
+|------|---------|------------|
+| `critical` | 可能导致死亡/永久残疾 | 34 |
+| `high` | 可能导致严重健康损害 | 148 |
+| `medium` | 可能导致中度损害/经济损失 | 261 |
+| `low` | 主要为认知误区 | 295 |
 
-### 多模态节点字段
+### 多模态节点字段（共 20 个：10 图像 + 5 视频 + 5 传播；字段定义以 data/schema.json 为准）
 
-图像节点（10 个）额外字段：`url`, `local_path`, `format`, `status`, `url_type`, `url_desc`
+图像节点（10 个，每条 10 字段）：`misconception_id`, `type`, `desc`, `source`, `url`, `local_path`, `format`, `status`, `url_type`, `url_desc`
 
-视频节点（5 个）额外字段：`url`, `local_path`, `keyframe_path`, `status`, `url_type`, `url_desc`
+视频节点（5 个，每条 10 字段）：`misconception_id`, `platform`, `desc`, `propagation`, `url`, `local_path`, `keyframe_path`, `status`, `url_type`, `url_desc`
 
-传播节点（5 个）额外字段：`source_url`, `status`, `url_type`, `url_desc`
+传播节点（5 个，每条 7 字段）：`misconception_id`, `platform`, `metrics`, `source_url`, `status`, `url_type`, `url_desc`
 
 详细标注规范请参阅 [docs/annotation_guidelines.md](docs/annotation_guidelines.md)。
 
