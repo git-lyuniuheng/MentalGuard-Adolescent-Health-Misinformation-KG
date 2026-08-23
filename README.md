@@ -190,7 +190,7 @@ dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
 ```bibtex
 @dataset{mentalguard2026,
   title     = {Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard)},
-  author    = {Lyuniu Heng},
+  author    = {Lyu, Niuheng},
   year      = {2026},
   month     = {August},
   version   = {v2.0},
@@ -203,7 +203,7 @@ dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
 ### APA
 
 ```
-Lyuniu Heng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard) (v2.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21774699
+Lyu, Niuheng. (2026). Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard) (v2.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21774699
 ```
 
 ---
