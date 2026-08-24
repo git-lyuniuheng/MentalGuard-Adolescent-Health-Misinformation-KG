@@ -24,7 +24,6 @@
 | **标注字段数** | 12 |
 | **双源验证覆盖率** | 100% (738/738) |
 | **T1 信源覆盖率** | 78.9% (582/738) |
-| **多模态节点总数** | 20 |
 | **URL 可回溯率** | 95% (19/20 HTTP 200) |
 | **危险等级分布** | critical: 34 / high: 148 / medium: 261 / low: 295 |
 | **信源层级** | T1（9 个政府/国际机构）、T2（6 个学术团体）、T3（3 个社交媒体平台） |
@@ -102,13 +101,13 @@
 | `medium` | 可能导致中度损害/经济损失 | 261 |
 | `low` | 主要为认知误区 | 295 |
 
-### 多模态节点字段（共 20 个：10 图像 + 5 视频 + 5 传播；字段定义以 data/schema.json 为准）
+### 多模态节点字段（字段定义以 data/schema.json 为准）
 
-图像节点（10 个，每条 10 字段）：`misconception_id`, `type`, `desc`, `source`, `url`, `local_path`, `format`, `status`, `url_type`, `url_desc`
+图像节点：`misconception_id`, `type`, `desc`, `source`, `url`, `local_path`, `format`, `status`, `url_type`, `url_desc`
 
-视频节点（5 个，每条 10 字段）：`misconception_id`, `platform`, `desc`, `propagation`, `url`, `local_path`, `keyframe_path`, `status`, `url_type`, `url_desc`
+视频节点：`misconception_id`, `platform`, `desc`, `propagation`, `url`, `local_path`, `keyframe_path`, `status`, `url_type`, `url_desc`
 
-传播节点（5 个，每条 7 字段）：`misconception_id`, `platform`, `metrics`, `source_url`, `status`, `url_type`, `url_desc`
+传播节点：`misconception_id`, `platform`, `metrics`, `source_url`, `status`, `url_type`, `url_desc`
 
 详细标注规范请参阅 [docs/annotation_guidelines.md](docs/annotation_guidelines.md)。
 
