@@ -14,13 +14,6 @@
 
 ---
 
-## ⚠️ 数据集限制（Dataset Limitations）
-
-为确保透明、避免误读，明确以下：
-1. **媒体二进制未嵌入**：多模态节点仅为**外部网页/视频页 URL 引用**，数据集**不包含**任何图像/视频文件，实际图/视频需从源页面获取，受版权未随包分发。
-
----
-
 ## 📊 数据规模与统计
 
 | 统计项 | 数值 |
@@ -119,6 +112,8 @@
 传播节点：`misconception_id`, `platform`, `metrics`, `source_url`, `status`, `url_type`, `url_desc`
 
 详细标注规范请参阅 [docs/annotation_guidelines.md](docs/annotation_guidelines.md)。
+
+**媒体二进制未嵌入**：多模态节点仅为**外部网页/视频页 URL 引用**，数据集**不包含**任何图像/视频文件，实际图/视频需从源页面获取，受版权未随包分发。
 
 ---
 
