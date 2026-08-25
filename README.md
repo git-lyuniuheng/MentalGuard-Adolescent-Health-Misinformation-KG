@@ -134,7 +134,8 @@ MentalGuard-Adolescent-Health-Misinformation-KG/
 │   ├── data_mh.py / data_fs.py / data_vx.py / data_dh.py / data_ss.py / data_bn.py / data_dm.py / data_sh.py / data_sx.py  # 九类新增记录模块
 │   ├── add_multimodal_urls.py         # 多模态节点 URL 填充脚本
 │   ├── verify_urls.py                 # URL 可访问性验证脚本
-│   └── verify_v2.py                   # v2.0 数据集完整性校验        
+│   └── verify_v2.py                   # v2.0 数据集完整性校验
+│   └── scripts/extract_multimodal_features.py  #多模态特征提取脚本
 └── docs/
     └── annotation_guidelines.md       # 标注规范详细说明
 ```
