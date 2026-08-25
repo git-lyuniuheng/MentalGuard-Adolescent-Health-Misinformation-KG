@@ -17,7 +17,7 @@
 ## ⚠️ 数据集限制（Dataset Limitations）
 
 为确保透明、避免误读，明确以下：
-1. **媒体二进制未嵌入**：多模态节点仅为**外部网页/视频页 URL 引用**，数据集**不包含**任何图像/视频文件，实际图/视频需从源页面获取，受版权与抓取限制，故未随包分发。
+1. **媒体二进制未嵌入**：多模态节点仅为**外部网页/视频页 URL 引用**，数据集**不包含**任何图像/视频文件，实际图/视频需从源页面获取，受版权未随包分发。
 
 ---
 
@@ -141,12 +141,7 @@ MentalGuard-Adolescent-Health-Misinformation-KG/
 │   ├── data_mh.py / data_fs.py / data_vx.py / data_dh.py / data_ss.py / data_bn.py / data_dm.py / data_sh.py / data_sx.py  # 九类新增记录模块
 │   ├── add_multimodal_urls.py         # 多模态节点 URL 填充脚本
 │   ├── verify_urls.py                 # URL 可访问性验证脚本
-│   └── verify_v2.py                   # v2.0 数据集完整性校验
-├── code/
-│   ├── eval_mentalguard.py            # 真实实验评估脚本（可复现，含诚实的 implemented/pending 划分）
-│   ├── multimodal_encoder.py          # Chinese-CLIP 多模态编码模块（真实实现，权重缺失抛异常）
-│   ├── requirements.txt               # 依赖清单
-│   └── README.md                      # 已实现 vs 待补 说明与运行方式
+│   └── verify_v2.py                   # v2.0 数据集完整性校验        
 └── docs/
     └── annotation_guidelines.md       # 标注规范详细说明
 ```
@@ -171,15 +166,6 @@ for category_key, category_data in data["categories"].items():
         print(f"  危险等级: {item['severity']}")
         print(f"  验证状态: {item['verification_status']}")
 ```
-
-### 从 HuggingFace 加载（发布后）
-
-```python
-from datasets import load_dataset
-dataset = load_dataset("git-lyuniuheng/Chinese-Adolescent-Health-Rumor-KG")
-```
-
----
 
 ## 📜 使用许可
 
