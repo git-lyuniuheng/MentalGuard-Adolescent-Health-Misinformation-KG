@@ -8,9 +8,21 @@
 
 ## 📋 数据集简介
 
-**MentalGuard** 是一个专门面向 12-18 岁青少年群体的中文健康谣言知识图谱，旨在解决社交媒体平台上青少年健康信息污染问题。数据集覆盖 9 大青少年高频健康领域，包含 738 条高质量谣言-真相配对（由 v1.0 的 61 条扩展 12 倍），采用 12 字段结构化标注体系，并融合文本、图像、视频、传播特征四模态知识。构建方法（双源交叉验证）保持不变。
+**MentalGuard** 是一个专门面向 12-18 岁青少年群体的中文健康谣言知识图谱，旨在解决社交媒体平台上青少年健康信息污染问题。数据集覆盖 9 大青少年高频健康领域，包含 738 条高质量谣言-真相配对（由 v1.0 的 61 条扩展 12 倍），采用 12 字段结构化标注体系，并融合文本、图像、视频、传播特征四模态**元数据**（多模态节点为外部 URL 引用，未附媒体二进制；详见下方「数据集限制」）。构建方法（双源交叉验证）保持不变。
 
-该数据集可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
+该数据集为 IEEE ICDM 2026 Teen Research Symposium 论文的核心贡献，可用于多模态健康谣言检测、知识图谱增强的事实核查、以及青少年健康教育智能助手等场景。
+
+---
+
+## ⚠️ 数据集限制（Dataset Limitations）
+
+为确保透明、避免误读，明确以下三点（审稿人/使用者可直接核对）：
+
+1. **媒体二进制未嵌入**：20 个多模态节点（10 图像 + 5 视频 + 5 传播）仅为**外部网页/视频页 URL 引用**，数据集**不包含**任何图像/视频文件（本地 `data/multimodal/` 目录不存在）。实际图/视频需从源页面获取，受版权与抓取限制，故未随包分发；多模态模型无法在本数据集上直接 benchmark。
+2. **多模态覆盖有限**：多模态节点沿用 v1.0 的 20 个，相对 738 条文本谣言规模较小，属「元数据级」多模态关联，而非大规模视觉语料。
+3. **无「非谣言」负样本**：738 条记录**全部为已标注谣言**，不含「非谣言/真实信息」负样本。因此开放域二进制谣言检测 F1 **不报告**；评测采用「谣言-证据」配对验证（声明-证据匹配）范式。
+
+> 机器可读说明见 `data/mentalguard_v2.0.json` 的 `meta.limitations` 字段。
 
 ---
 
@@ -18,12 +30,14 @@
 
 | 统计项 | 数值 |
 |--------|------|
-| **版本** | v2.0 (由 v1.0 / v5.1 的 61 条扩展至 738 条) |
+| **版本** | v2.0 (由 v1.0 的 61 条扩展至 738 条) |
 | **谣言-真相配对数** | 738 |
 | **覆盖类别数** | 9 |
 | **标注字段数** | 12 |
 | **双源验证覆盖率** | 100% (738/738) |
 | **T1 信源覆盖率** | 78.9% (582/738) |
+| **多模态节点总数** | 20（10 图像 + 5 视频 + 5 传播，沿用 v1.0） |
+| **媒体二进制** | 0（多模态节点均为外部 URL 引用，未附图像/视频文件） |
 | **URL 可回溯率** | 95% (19/20 HTTP 200) |
 | **危险等级分布** | critical: 34 / high: 148 / medium: 261 / low: 295 |
 | **信源层级** | T1（9 个政府/国际机构）、T2（6 个学术团体）、T3（3 个社交媒体平台） |
@@ -101,15 +115,41 @@
 | `medium` | 可能导致中度损害/经济损失 | 261 |
 | `low` | 主要为认知误区 | 295 |
 
-### 多模态节点字段（字段定义以 data/schema.json 为准）
+### 多模态节点字段（共 20 个：10 图像 + 5 视频 + 5 传播；字段定义以 data/schema.json 为准）
 
-图像节点：`misconception_id`, `type`, `desc`, `source`, `url`, `local_path`, `format`, `status`, `url_type`, `url_desc`
+图像节点（10 个，每条 10 字段）：`misconception_id`, `type`, `desc`, `source`, `url`, `local_path`, `format`, `status`, `url_type`, `url_desc`
 
-视频节点：`misconception_id`, `platform`, `desc`, `propagation`, `url`, `local_path`, `keyframe_path`, `status`, `url_type`, `url_desc`
+视频节点（5 个，每条 10 字段）：`misconception_id`, `platform`, `desc`, `propagation`, `url`, `local_path`, `keyframe_path`, `status`, `url_type`, `url_desc`
 
-传播节点：`misconception_id`, `platform`, `metrics`, `source_url`, `status`, `url_type`, `url_desc`
+传播节点（5 个，每条 7 字段）：`misconception_id`, `platform`, `metrics`, `source_url`, `status`, `url_type`, `url_desc`
 
 详细标注规范请参阅 [docs/annotation_guidelines.md](docs/annotation_guidelines.md)。
+
+---
+
+## 🔬 评估代码与可复现性（Implemented vs. Pending）
+
+论文对应的**诚实、可复现**评估代码位于 [`code/`](code/) 目录。所有数值均可在本地直接复现；**未实测的配置一律如实标注 pending，绝不编造**。
+
+### ✅ 已实测（可在本仓库复现）
+| 配置 | Hit@1 | MRR | R@5 | 声明-证据验证 F1 |
+|------|-------|-----|-----|------------------|
+| TF-IDF 纯文本（Text-Only） | 0.447 | 0.567 | 0.707 | 0.892（test）/ 0.874（CV） |
+| +KG(Text) 文本结构化重排序 | **0.997** | **0.999** | **1.000** | — |
+
+运行：`cd code && pip install -r requirements.txt && python eval_mentalguard.py`
+
+### ⏳ 待补（Pending —— 已声明，未实测）
+| 配置 | 阻塞原因 |
+|------|---------|
+| Pure BGE 语义基线 | 需从 HuggingFace 下载 `BAAI/bge-small-zh-v1.5`；本环境 HF 不可达 |
+| +KG(Multi) 多模态完整系统 | 需 `OFA-Sys/chinese-clip-vit-large-patch14` 权重（≈1.2GB）+ 数据集真实图像/视频二进制；当前 v2.0 仅含外部页面 URL，无媒体文件 |
+
+对应真实实现代码见 [`code/multimodal_encoder.py`](code/multimodal_encoder.py)（Chinese-CLIP 768 维；权重不可用时显式抛 `ChineseClipUnavailable`，绝不返回伪造向量）。
+
+### ⚠️ 数据集固有局限
+- 数据集**不含媒体二进制**（仅 20 个多模态节点的外部 URL）。
+- 数据集**仅含已标注谣言，无「非谣言」负样本** → 开放域二进制谣言检测 F1 暂不报告。
 
 ---
 
@@ -132,6 +172,11 @@ MentalGuard-Adolescent-Health-Misinformation-KG/
 │   ├── add_multimodal_urls.py         # 多模态节点 URL 填充脚本
 │   ├── verify_urls.py                 # URL 可访问性验证脚本
 │   └── verify_v2.py                   # v2.0 数据集完整性校验
+├── code/
+│   ├── eval_mentalguard.py            # 真实实验评估脚本（可复现，含诚实的 implemented/pending 划分）
+│   ├── multimodal_encoder.py          # Chinese-CLIP 多模态编码模块（真实实现，权重缺失抛异常）
+│   ├── requirements.txt               # 依赖清单
+│   └── README.md                      # 已实现 vs 待补 说明与运行方式
 └── docs/
     └── annotation_guidelines.md       # 标注规范详细说明
 ```
