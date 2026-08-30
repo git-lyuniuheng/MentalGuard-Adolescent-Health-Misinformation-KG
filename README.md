@@ -1,7 +1,7 @@
 # Chinese Adolescent Health Misinformation Knowledge Graph (MentalGuard)
 
 <p align="center">
-  <strong>首个面向青少年的中文多模态健康谣言知识图谱</strong>
+  <strong>面向青少年的中文多模态健康谣言知识图谱</strong>
 </p>
 
 ---
@@ -87,7 +87,7 @@
 | `category_key` | string | 类别英文标识 | `digital_health` |
 | `severity` | enum | 危险等级 | `critical` / `high` / `medium` / `low` |
 | `keywords` | string[] | 关键词标签数组 | ["近视", "伪科学", "虚假广告"] |
-| `platform` | string | 主要传播平台 | 抖音 / 小红书 / B站 / 微博 |
+| `platform` | string | 主要传播平台 | 抖音 / B站 |
 | `verified_sources` | object[] | 交叉验证信源数组 | `[{name, document, tier}]` |
 | `verification_status` | enum | 核验状态 | `verified` / `pending` |
 | `source_tier` | string | 最高信源层级 | `T1` / `T2` |
